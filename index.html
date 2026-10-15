@@ -1,0 +1,2863 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>VoidLoader Launcher | Premium Cheat Launcher</title>
+  <meta name="description" content="VoidLoader Launcher — premium Windows cheat launcher for Valorant, Fortnite, GTA 5, R6, Roblox, Warzone, DayZ, Among Us, Marvel Rivals, Apex, Sea of Thieves and 89 games. Clean dashboard, fast downloads.">
+  <meta name="theme-color" content="#050b14">
+  <meta property="og:title" content="VoidLoader Launcher">
+  <meta property="og:description" content="Premium Windows cheat launcher with a polished interface, frequent updates and one‑click downloads.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2322d3ee'/%3E%3Cstop offset='1' stop-color='%230e7490'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='1' y='1' width='30' height='30' rx='8' fill='%23071321'/%3E%3Cpath d='M7 8h5l4 11 4-11h5l-7 17h-4z' fill='url(%23g)'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Space+Grotesk:wght@500;600;700;800&amp;family=Orbitron:wght@700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #050b14;
+      --bg-2: #071321;
+      --surface: rgba(8, 22, 38, 0.82);
+      --surface-2: rgba(10, 34, 54, 0.88);
+      --surface-3: rgba(255, 255, 255, 0.05);
+      --text: #f9f6ff;
+      --text-soft: #c5e8f5;
+      --text-muted: #7ea6bb;
+      --primary: #06b6d4;
+      --primary-2: #67e8f9;
+      --primary-dark: #0284c7;
+      --violet: #22d3ee;
+      --green: #66f7b2;
+      --orange: #ffc36b;
+      --gold: #f59e0b;
+      --gold-light: #fef08a;
+      --danger: #f472b6;
+      --border: rgba(255, 255, 255, 0.09);
+      --border-2: rgba(6, 182, 212, 0.34);
+      --shadow: 0 32px 120px rgba(0, 0, 0, 0.62);
+      --shadow-cyan: 0 0 70px rgba(6, 182, 212, 0.30);
+      --radius-xl: 36px;
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --container: 1240px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 12% 5%, rgba(6, 182, 212, 0.18), transparent 28%),
+        radial-gradient(circle at 86% 12%, rgba(34, 211, 238, 0.15), transparent 32%),
+        radial-gradient(circle at 50% 100%, rgba(6, 182, 212, 0.09), transparent 38%),
+        linear-gradient(180deg, #050b14 0%, #071321 40%, #050b14 100%);
+      color: var(--text-soft);
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 82px 82px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.82), transparent 78%);
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.18;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.32'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    ::selection { color: #0a0212; background: var(--primary); }
+
+    .spotlight {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 20%), rgba(6,182,212,0.09), transparent 48%);
+      transition: opacity 0.25s ease;
+    }
+
+    .page { position: relative; z-index: 1; }
+    .container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 28px; }
+
+    h1, h2, h3 { color: var(--text); font-family: 'Space Grotesk', 'Inter', sans-serif; line-height: 1.04; }
+
+    .premium-border {
+      position: relative;
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(255,255,255,0.075), rgba(255,255,255,0.025));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+
+    .premium-border::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(6,182,212,0.48), transparent 34%, rgba(192,132,252,0.25));
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0.74;
+    }
+
+    header {
+      display: none !important;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      background: rgba(4, 13, 25, 0.94);
+      border-bottom: 1px solid rgba(34,211,238,0.22);
+      backdrop-filter: blur(22px) saturate(155%);
+      box-shadow: 0 8px 30px rgba(0,0,0,.22);
+    }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      min-width: fit-content;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 42px;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      background:
+        radial-gradient(circle at 32% 20%, rgba(255,255,255,0.9), transparent 46%),
+        linear-gradient(135deg, var(--violet) 0%, var(--primary) 48%, var(--primary-dark) 100%);
+      filter: drop-shadow(0 0 14px rgba(6,182,212,0.55));
+      display: grid;
+      place-items: center;
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+
+    .brand:hover .brand-mark {
+      transform: translateY(-2px);
+      filter: drop-shadow(0 0 20px rgba(6,182,212,0.8));
+    }
+
+    .brand-mark::after {
+      content: 'V';
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.02rem;
+      font-weight: 900;
+      color: #03121a;
+      transition: transform 0.35s ease;
+    }
+
+    .brand:hover .brand-mark::after { transform: rotate(-30deg); }
+
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.18rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      color: var(--text);
+      text-shadow: 0 0 22px rgba(139, 92, 246, 0.35);
+    }
+
+    .nav {
+      display: flex;
+      position: relative;
+      top: 0;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 7px;
+      border-radius: 999px;
+      background: linear-gradient(120deg, rgba(8, 30, 48, .94), rgba(13, 39, 57, .78));
+      border: 1px solid rgba(34,211,238,.20);
+      box-shadow: 0 8px 28px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.035);
+    }
+
+    .nav a {
+      padding: 10px 15px;
+      border-radius: 999px;
+      color: #b5d5e2;
+      font-size: 0.88rem;
+      font-weight: 700;
+      transition: 0.22s ease;
+    }
+
+    .nav a:hover {
+      color: var(--text);
+      background: rgba(34,211,238,0.10);
+      color: #e7fbff;
+    }
+
+    .header-download {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 132px;
+      height: 46px;
+      border-radius: 999px;
+      background: rgba(6,182,212,0.11);
+      border: 1px solid rgba(6,182,212,0.34);
+      color: var(--text);
+      font-weight: 900;
+      letter-spacing: 0.03em;
+      transition: 0.25s ease;
+      box-shadow: 0 0 28px rgba(6,182,212,0.13);
+    }
+
+    .header-download:hover {
+      transform: translateY(-2px);
+      background: rgba(6,182,212,0.18);
+      box-shadow: 0 0 38px rgba(6,182,212,0.25);
+    }
+
+    .hero {
+      position: relative;
+      padding: 34px 0 72px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 720px;
+      height: 720px;
+      right: -260px;
+      top: 20px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(6,182,212,0.17), transparent 62%);
+      filter: blur(8px);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(420px, 0.98fr);
+      gap: 56px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(6,182,212,0.09);
+      border: 1px solid rgba(6,182,212,0.22);
+      color: #f3ebff;
+      font-size: 0.9rem;
+      font-weight: 800;
+      margin-bottom: 25px;
+      box-shadow: 0 0 32px rgba(6,182,212,0.10);
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 18px rgba(102,247,178,0.72);
+    }
+
+    h1 {
+      max-width: 760px;
+      font-size: clamp(3.15rem, 7vw, 6.55rem);
+      letter-spacing: -0.07em;
+      font-weight: 800;
+      margin-bottom: 25px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(115deg, #ffffff 0%, #f3ebff 24%, var(--primary) 58%, #d8b4fe 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 54px rgba(6,182,212,0.18);
+    }
+
+    .hero-subtitle {
+      max-width: 650px;
+      color: #c5e8f5;
+      font-size: 1.22rem;
+      line-height: 1.75;
+      margin-bottom: 34px;
+    }
+
+    .cta-row {
+      display: flex;
+      align-items: center;
+      gap: 17px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 68px;
+      padding: 0 34px;
+      border-radius: 21px;
+      border: 0;
+      cursor: pointer;
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.03em;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.26s ease, box-shadow 0.26s ease, border-color 0.26s ease, background 0.26s ease;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.28) 43%, transparent 64%);
+      transform: translateX(-125%);
+      transition: transform 0.72s ease;
+      pointer-events: none;
+    }
+
+    .btn:hover::before { transform: translateX(125%); }
+    .btn:hover { transform: translateY(-4px); }
+    .btn:active { transform: translateY(-1px) scale(0.99); }
+
+    .btn-primary {
+      min-width: 298px;
+      min-height: 76px;
+      color: #0a0212;
+      background:
+        radial-gradient(circle at 20% 20%, #ffffff 0%, transparent 18%),
+        linear-gradient(135deg, #22d3ee 0%, var(--primary) 38%, #0284c7 100%);
+      border: 1px solid rgba(255,255,255,0.42);
+      box-shadow:
+        0 22px 56px rgba(6,182,212,0.28),
+        0 0 70px rgba(6,182,212,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.48);
+      text-transform: uppercase;
+      font-size: 1.08rem;
+    }
+
+    .btn-primary:hover {
+      box-shadow:
+        0 26px 70px rgba(6,182,212,0.40),
+        0 0 95px rgba(6,182,212,0.36),
+        inset 0 1px 0 rgba(255,255,255,0.60);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 18px 42px rgba(0,0,0,0.28);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(6,182,212,0.35);
+      background: rgba(6,182,212,0.10);
+      box-shadow: 0 22px 52px rgba(0,0,0,0.34), 0 0 38px rgba(6,182,212,0.16);
+    }
+
+    .download-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .download-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: linear-gradient(120deg, rgba(8, 30, 48, .94), rgba(13, 39, 57, .78));
+      border: 1px solid rgba(34,211,238,.20);
+      box-shadow: 0 8px 28px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.035);
+    }
+
+    .download-meta span::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 12px rgba(6,182,212,0.5);
+    }
+
+    .hero-proof {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 36px;
+      max-width: 460px;
+    }
+
+    .proof-card {
+      min-height: 112px;
+      padding: 20px 18px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.075);
+      backdrop-filter: blur(16px);
+    }
+
+    .proof-card strong {
+      display: block;
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.18rem;
+      margin-bottom: 5px;
+    }
+
+    .proof-card small { color: var(--text-muted); font-weight: 700; }
+
+    .preview-wrap {
+      position: relative;
+      min-height: 610px;
+      perspective: 1200px;
+    }
+
+    .orbital-ring {
+      position: absolute;
+      inset: 20px -26px auto auto;
+      width: 460px;
+      height: 460px;
+      border: 1px solid rgba(6,182,212,0.12);
+      border-radius: 50%;
+      transform: rotateX(68deg) rotateZ(-18deg);
+      pointer-events: none;
+    }
+
+    .orbital-ring::before,
+    .orbital-ring::after {
+      content: '';
+      position: absolute;
+      inset: 58px;
+      border-radius: 50%;
+      border: 1px solid rgba(192,132,252,0.16);
+    }
+
+    .orbital-ring::after {
+      inset: 128px;
+      border-color: rgba(6,182,212,0.22);
+    }
+
+    .launcher-shell {
+      position: relative;
+      z-index: 2;
+      width: min(100%, 570px);
+      margin-left: auto;
+      border-radius: 34px;
+      transform: rotateY(-8deg) rotateX(4deg);
+      transform-style: preserve-3d;
+      box-shadow: var(--shadow), var(--shadow-cyan);
+      transition: transform 0.25s ease;
+    }
+
+    .launcher-window {
+      border-radius: 34px;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 78% 0%, rgba(34,211,238,0.12), transparent 42%),
+        linear-gradient(145deg, rgba(13,29,47,0.98), rgba(8,17,31,0.98));
+      border: 1px solid rgba(34,211,238,0.22);
+      backdrop-filter: blur(28px);
+    }
+
+    .window-top {
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 0 22px;
+      border-bottom: 1px solid rgba(255,255,255,0.075);
+      background: linear-gradient(90deg, rgba(10,28,45,0.98), rgba(18,36,55,0.92));
+    }
+
+    .window-dots { display: flex; gap: 8px; }
+    .window-dots span { width: 11px; height: 11px; border-radius: 50%; background: rgba(255,255,255,0.22); }
+    .window-dots span:nth-child(1) { background: #f472b6; }
+    .window-dots span:nth-child(2) { background: #ffc86b; }
+    .window-dots span:nth-child(3) { background: #69f7af; }
+
+    .window-title {
+      color: var(--text);
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      font-size: 0.86rem;
+      opacity: 0.94;
+    }
+
+    .window-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(102,247,178,0.10);
+      border: 1px solid rgba(102,247,178,0.24);
+      color: #b7ffd9;
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    .window-status::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 16px rgba(102,247,178,0.7);
+    }
+
+    .window-body {
+      display: grid;
+      grid-template-columns: 152px 1fr;
+      min-height: 460px;
+    }
+
+    .sidebar {
+      padding: 22px 16px;
+      border-right: 1px solid rgba(255,255,255,0.07);
+      background: linear-gradient(180deg, rgba(5,16,29,0.78), rgba(9,20,34,0.92));
+    }
+
+    .side-label {
+      margin: 12px 8px 10px;
+      color: var(--text-muted);
+      font-size: 0.68rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .side-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 12px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      color: #c7d8e8;
+      transition: background .2s ease, border-color .2s ease, transform .2s ease;
+      font-size: 0.86rem;
+      font-weight: 800;
+      margin-bottom: 7px;
+    }
+
+    .side-item.active {
+      color: var(--text);
+      background: linear-gradient(110deg, rgba(6,182,212,0.19), rgba(34,211,238,0.07));
+      border: 1px solid rgba(34,211,238,0.28);
+      box-shadow: inset 3px 0 0 #22d3ee, 0 8px 24px rgba(0,0,0,0.14);
+    }
+
+    .side-icon {
+      width: 23px;
+      height: 23px;
+      border-radius: 8px;
+      background: rgba(148,177,202,0.11);
+      border: 1px solid rgba(148,177,202,0.10);
+      color: #9bb7ca;
+      display: grid;
+      place-items: center;
+      font-size: 0.75rem;
+    }
+
+    .side-item.active .side-icon {
+      background: linear-gradient(135deg, #22d3ee, #0891b2);
+      border-color: rgba(34,211,238,0.32);
+      color: #041521;
+    }
+
+    .dashboard {
+      padding: 24px;
+    }
+
+    .dash-head {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .dash-head h3 {
+      font-size: 1.7rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 6px;
+    }
+
+    .dash-head p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .mini-btn {
+      min-width: 96px;
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: rgba(6,182,212,0.12);
+      color: #f3ebff;
+      border: 1px solid rgba(6,182,212,0.22);
+      font-weight: 900;
+      font-size: 0.78rem;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .status-card {
+      padding: 15px 13px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .status-card span {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .status-card strong {
+      display: block;
+      color: var(--text);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.03rem;
+    }
+
+    .tool-list { display: grid; gap: 12px; }
+
+    .tool-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      align-items: center;
+      gap: 13px;
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.042);
+      border: 1px solid rgba(255,255,255,0.07);
+      overflow: hidden;
+    }
+
+    .tool-item.active {
+      background: rgba(6,182,212,0.075);
+      border-color: rgba(6,182,212,0.22);
+    }
+
+    .tool-item.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--primary), var(--violet));
+      box-shadow: 0 0 18px rgba(6,182,212,0.7);
+    }
+
+    .tool-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(6,182,212,0.18), rgba(192,132,252,0.18));
+      border: 1px solid rgba(6,182,212,0.10);
+      display: grid;
+      place-items: center;
+      color: var(--primary-2);
+      font-weight: 900;
+    }
+
+    .tool-copy strong { display: block; color: var(--text); font-size: 0.94rem; }
+    .tool-copy span { color: var(--text-muted); font-size: 0.78rem; font-weight: 700; }
+
+    .tool-state {
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: #f3ebff;
+      background: rgba(6,182,212,0.10);
+      border: 1px solid rgba(6,182,212,0.18);
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    .progress-panel {
+      margin-top: 17px;
+      padding: 16px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(6,182,212,0.10), rgba(192,132,252,0.08));
+      border: 1px solid rgba(6,182,212,0.18);
+    }
+
+    .progress-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text);
+      font-size: 0.82rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .progress-track {
+      height: 9px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.32);
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 74%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--primary), var(--violet));
+      box-shadow: 0 0 22px rgba(6,182,212,0.52);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .progress-fill::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      animation: shimmer 2.4s infinite;
+    }
+
+    @keyframes shimmer { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+
+    .floating-card {
+      position: absolute;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(15, 7, 24, 0.78);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 22px 60px rgba(0,0,0,0.38);
+      animation: floaty 5.5s ease-in-out infinite;
+    }
+
+    .floating-card.one { left: -8px; top: 72px; }
+    .floating-card.two { right: -12px; top: 408px; animation-delay: -1.7s; }
+    .floating-card.three { left: 54px; bottom: 16px; animation-delay: -3s; }
+
+    .float-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(6,182,212,0.12);
+      border: 1px solid rgba(6,182,212,0.18);
+      color: var(--primary-2);
+      font-weight: 900;
+    }
+
+    .floating-card strong { display: block; color: var(--text); font-size: 0.86rem; }
+    .floating-card span { display: block; color: var(--text-muted); font-size: 0.72rem; font-weight: 800; }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-13px); }
+    }
+
+    section { padding: 88px 0; }
+
+    .section-head {
+      max-width: 780px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      margin-bottom: 14px;
+      color: var(--primary-2);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-size: clamp(2.2rem, 4vw, 3.75rem);
+      letter-spacing: -0.055em;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      color: #c5e8f5;
+      font-size: 1.08rem;
+      line-height: 1.8;
+    }
+
+    .trust-strip {
+      padding: 0 0 44px;
+    }
+
+    .trust-panel {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      border-radius: 30px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+    }
+
+    .trust-panel .trust-item {
+      padding: 24px 22px;
+      background: rgba(18, 9, 28, 0.86);
+      backdrop-filter: blur(18px);
+    }
+
+    .trust-item strong { display: block; color: var(--text); font-family: 'Space Grotesk'; font-size: 1.05rem; margin-bottom: 5px; }
+    .trust-item span { color: var(--text-muted); font-size: 0.88rem; font-weight: 700; }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .feature-card {
+      min-height: 255px;
+      padding: 28px;
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.075);
+      backdrop-filter: blur(18px);
+      transition: 0.28s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::after {
+      content: '';
+      position: absolute;
+      inset: auto -30% -40% -30%;
+      height: 160px;
+      background: radial-gradient(circle, rgba(6,182,212,0.13), transparent 64%);
+      opacity: 0;
+      transition: 0.28s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(6,182,212,0.24);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.38);
+      background: rgba(255,255,255,0.055);
+    }
+
+    .feature-card:hover::after { opacity: 1; }
+
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(6,182,212,0.48), rgba(192,132,252,0.20));
+      color: #e8fbff;
+      border: 1px solid rgba(34,211,238,0.22);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 900;
+      font-size: 1.45rem;
+      line-height: 1;
+      margin-bottom: 22px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .feature-card:hover .feature-icon {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, rgba(6,182,212,0.62), rgba(192,132,252,0.32));
+    }
+
+    .feature-card h3 { font-size: 1.34rem; letter-spacing: -0.035em; margin-bottom: 12px; }
+    .feature-card p { color: var(--text-muted); font-weight: 650; }
+
+    .showcase-panel {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 28px;
+      align-items: stretch;
+      padding: 20px;
+      border-radius: 36px;
+      background:
+        linear-gradient(135deg, rgba(6,182,212,0.10), rgba(192,132,252,0.055)),
+        rgba(255,255,255,0.035);
+      border: 1px solid rgba(255,255,255,0.09);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .showcase-copy {
+      padding: 36px;
+      border-radius: 28px;
+      background: rgba(9,3,14,0.45);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .showcase-copy h2 {
+      font-size: clamp(2rem, 3vw, 3.05rem);
+      letter-spacing: -0.055em;
+      margin-bottom: 16px;
+    }
+
+    .showcase-copy p {
+      color: #c5e8f5;
+      font-size: 1.03rem;
+      margin-bottom: 22px;
+    }
+
+    .bullet-list { display: grid; gap: 12px; }
+
+    .bullet {
+      display: flex;
+      gap: 12px;
+      align-items: start;
+      color: #e5dafa;
+      font-weight: 700;
+    }
+
+    .bullet::before {
+      content: '✓';
+      flex: 0 0 25px;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(102,247,178,0.10);
+      border: 1px solid rgba(102,247,178,0.22);
+      color: #a9ffd1;
+      font-size: 0.74rem;
+      margin-top: 1px;
+    }
+
+    .testimonial-card {
+      position: relative;
+      min-height: 438px;
+      border-radius: 28px;
+      padding: 28px;
+      background: rgba(16, 6, 26, 0.82);
+      border: 1px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .testimonial-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 60% 12%, rgba(6,182,212,0.16), transparent 34%);
+      pointer-events: none;
+    }
+
+    .testimonial-quote {
+      color: var(--text-soft);
+      font-size: 1.15rem;
+      font-weight: 500;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: auto;
+      min-height: 44px;
+    }
+
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      flex: 0 0 44px;
+      align-self: center;
+      box-sizing: border-box;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(6,182,212,0.18), rgba(192,132,252,0.18));
+      border: 1px solid rgba(255,255,255,0.08);
+      display: grid;
+      place-items: center;
+      color: var(--primary-2);
+      font-weight: 900;
+    }
+
+    .author-info strong { display: block; color: var(--text); font-size: 0.94rem; }
+    .author-info span { color: var(--text-muted); font-size: 0.78rem; font-weight: 700; }
+
+    /* ── Library controls: search / filters / sort ── */
+    .library-controls { display: grid; gap: 16px; margin-bottom: 28px; }
+
+    .search-wrap { position: relative; }
+
+    .search-wrap input {
+      width: 100%;
+      padding: 15px 140px 15px 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      background: rgba(22, 11, 36, 0.6);
+      color: var(--text);
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.25s ease;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.2), 0 0 20px rgba(6,182,212,0.15);
+    }
+
+    .search-wrap input:focus {
+      outline: none;
+      border-color: rgba(139, 92, 246, 0.8);
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.2), 0 0 40px rgba(6,182,212,0.35);
+    }
+
+    .search-count {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      font-weight: 800;
+      pointer-events: none;
+    }
+
+    .controls-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .filters-row { display: flex; flex-wrap: wrap; gap: 9px; }
+
+    .filter-btn {
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(6,182,212,0.10);
+      border: 1px solid rgba(6,182,212,0.22);
+      color: #f3ebff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      white-space: nowrap;
+    }
+
+    .filter-btn:hover { background: rgba(6,182,212,0.18); border-color: rgba(6,182,212,0.4); }
+
+    .filter-btn.active {
+      background: linear-gradient(135deg, var(--primary), var(--violet));
+      border-color: transparent;
+      color: #0a0212;
+      box-shadow: 0 8px 24px rgba(6,182,212,0.35);
+    }
+
+    .sort-wrap { display: flex; align-items: center; gap: 10px; }
+    .sort-wrap label { color: var(--text-muted); font-weight: 700; font-size: 0.88rem; white-space: nowrap; }
+
+    .sort-select {
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(6,182,212,0.24);
+      background: #0b1a2b;
+      color: #eaf7ff;
+      color-scheme: dark;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      outline: none;
+      box-shadow: 0 8px 24px rgba(0,0,0,.22);
+    }
+    .sort-select:hover, .sort-select:focus {
+      border-color: rgba(34,211,238,.72);
+      background: #10263a;
+      box-shadow: 0 0 0 3px rgba(34,211,238,.10);
+    }
+    .sort-select option { background: #0b1726; color: #eaf7ff; padding: 10px; }
+
+    /* ── Game cards with cover art ── */
+    .game-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .game-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border-radius: 22px;
+      overflow: hidden;
+      cursor: pointer;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      backdrop-filter: blur(14px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .game-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(6,182,212,0.48);
+      box-shadow: 0 26px 60px rgba(0,0,0,0.42), 0 0 34px rgba(6,182,212,0.18);
+    }
+
+    .game-media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: linear-gradient(135deg, #083344, #0891b2);
+    }
+
+    .game-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+
+    .game-card:hover .game-media img { transform: scale(1.07); }
+
+    .game-media::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(5,11,20,0) 42%, rgba(5,11,20,0.92) 100%);
+      pointer-events: none;
+    }
+
+    /* Branded cover for titles without official store art */
+    .game-media .cover-title {
+      position: absolute;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      text-align: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      text-shadow: 0 2px 18px rgba(0,0,0,0.55);
+      background:
+        radial-gradient(circle at 28% 22%, rgba(255,255,255,0.20), transparent 55%),
+        linear-gradient(135deg, var(--cover-a, #0891b2), var(--cover-b, #22d3ee));
+    }
+
+    .game-media.no-art img { display: none; }
+    .game-media.no-art .cover-title { display: flex; }
+
+    /* Logo-style art (titles without store cover art) sits on a branded gradient */
+    .game-media.logo-art img {
+      object-fit: contain;
+      padding: 15% 13%;
+    }
+
+    .game-card:hover .game-media.logo-art img { transform: scale(1.04); }
+
+    .game-media.logo-art.invert img {
+      filter: brightness(0) invert(1) drop-shadow(0 3px 12px rgba(0,0,0,0.45));
+    }
+
+    .game-media.logo-art.lift img {
+      filter: brightness(1.85) saturate(1.15) drop-shadow(0 3px 12px rgba(0,0,0,0.5));
+    }
+
+    .game-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 2;
+      display: inline-flex;
+      padding: 5px 11px;
+      border-radius: 8px;
+      background: rgba(9,3,14,0.66);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(6,182,212,0.48);
+      color: #d8b4fe;
+      font-size: 0.66rem;
+      font-weight: 900;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .game-status {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 2;
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 0.64rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      backdrop-filter: blur(6px);
+    }
+
+    .game-status.s-updated { background: rgba(102,247,178,0.18); border: 1px solid rgba(102,247,178,0.4); color: #a9ffd1; }
+    .game-status.s-new     { background: rgba(6,182,212,0.24); border: 1px solid rgba(6,182,212,0.48); color: #e5d4ff; }
+    .game-status.s-popular { background: rgba(245,158,11,0.20); border: 1px solid rgba(245,158,11,0.44); color: #fef08a; }
+
+    .game-details {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      z-index: 2;
+      padding: 9px;
+      border-radius: 10px;
+      text-align: center;
+      background: rgba(6,182,212,0.92);
+      color: #0a0212;
+      font-weight: 900;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all 0.25s ease;
+    }
+
+    .game-card:hover .game-details { opacity: 1; transform: translateY(0); }
+
+    .game-body {
+      padding: 14px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .game-card h3 {
+      font-size: 0.98rem;
+      line-height: 1.22;
+      letter-spacing: -0.025em;
+      margin-bottom: 6px;
+    }
+
+    .game-card p {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      flex: 1;
+    }
+
+    .game-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-weight: 800;
+      font-size: 0.8rem;
+    }
+
+    .game-rating { color: var(--orange); }
+    .game-dl { color: var(--text-muted); font-size: 0.74rem; }
+
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    /* ── Pagination ── */
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 38px;
+    }
+
+    .page-btn {
+      padding: 12px 22px;
+      border-radius: 12px;
+      border: 1px solid rgba(6,182,212,0.24);
+      background: rgba(6,182,212,0.09);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.22s ease;
+    }
+
+    .page-btn:hover:not(:disabled) { background: rgba(6,182,212,0.18); border-color: rgba(6,182,212,0.48); }
+    .page-btn:disabled { opacity: 0.32; cursor: not-allowed; }
+
+    .page-info { color: var(--text-muted); font-weight: 700; font-size: 0.9rem; min-width: 130px; text-align: center; }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .testimonial-tile {
+      padding: 28px;
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.075);
+      backdrop-filter: blur(18px);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    .testimonial-tile .quote {
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      counter-reset: step;
+    }
+
+    .step-card {
+      counter-increment: step;
+      padding: 30px;
+      min-height: 245px;
+      border-radius: 28px;
+      background: rgba(6,182,212,0.04);
+      border: 1px solid rgba(6,182,212,0.075);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step-card::before {
+      content: '0' counter(step);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(6,182,212,0.16), rgba(192,132,252,0.14));
+      border: 1px solid rgba(6,182,212,0.18);
+      color: #f3ebff;
+      font-family: 'Space Grotesk';
+      font-weight: 900;
+      margin-bottom: 24px;
+    }
+
+    .step-card h3 { font-size: 1.34rem; letter-spacing: -0.035em; margin-bottom: 10px; }
+    .step-card p { color: var(--text-muted); font-weight: 650; }
+
+    .final-cta {
+      padding-bottom: 110px;
+    }
+
+    .final-panel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 40px;
+      padding: 52px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(6,182,212,0.17), transparent 44%),
+        linear-gradient(135deg, rgba(6,182,212,0.075), rgba(6,182,212,0.03));
+      border: 1px solid rgba(6,182,212,0.10);
+      box-shadow: var(--shadow);
+    }
+
+    .final-panel h2 {
+      font-size: clamp(2.25rem, 4vw, 4.2rem);
+      letter-spacing: -0.06em;
+      margin-bottom: 14px;
+    }
+
+    .final-panel p {
+      max-width: 680px;
+      margin: 0 auto 28px;
+      color: #e5dafa;
+      font-size: 1.08rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 34px 0 92px;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+    .footer-links a { transition: 0.2s ease; }
+    .footer-links a:hover { color: var(--text); }
+
+    .mobile-download-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 120;
+      display: none;
+      padding: 12px 14px calc(12px + env(safe-area-inset-bottom));
+      background: rgba(9,3,14,0.88);
+      backdrop-filter: blur(24px) saturate(150%);
+      border-top: 1px solid rgba(6,182,212,0.10);
+    }
+
+    .mobile-download-bar .btn-primary {
+      width: 100%;
+      min-width: 100%;
+      min-height: 62px;
+      border-radius: 18px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.62s ease, transform 0.62s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Bonus Card / Promo Box Component */
+    .bonus-card-modal {
+      display: none;
+      margin-top: 24px;
+      padding: 24px;
+      border-radius: 24px;
+      background: radial-gradient(100% 100% at 50% 0%, rgba(245, 158, 11, 0.15) 0%, rgba(22, 11, 36, 0.95) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(245, 158, 11, 0.15);
+      animation: fadeInModal 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      text-align: center;
+    }
+
+    .bonus-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .bonus-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .bonus-desc {
+      font-size: 0.92rem;
+      color: var(--text-soft);
+      line-height: 1.45;
+      margin-bottom: 20px;
+    }
+
+    .bonus-desc .highlight {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .btn-collect {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 54px;
+      padding: 0 24px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      color: #0f172a;
+      background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 16px;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(245, 158, 11, 0.35);
+      transition: all 0.22s ease;
+    }
+
+    .btn-collect:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, #fbbf24 0%, var(--gold-light) 100%);
+      box-shadow: 0 14px 32px rgba(245, 158, 11, 0.45);
+    }
+
+    @keyframes fadeInModal {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid, .showcase-panel { grid-template-columns: 1fr; }
+      .preview-wrap { min-height: auto; }
+      .launcher-shell { margin: 0 auto; transform: none; }
+      .floating-card.one { left: 18px; }
+      .floating-card.two { right: 18px; }
+      .floating-card.three { left: 42px; bottom: -8px; }
+      .feature-grid { grid-template-columns: repeat(2, 1fr); }
+      .game-grid { grid-template-columns: repeat(3, 1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .trust-panel { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 820px) {
+      .container { padding: 0 18px; }
+      .header-inner { min-height: 72px; }
+      .nav { display: none; }
+      .header-download { min-width: 112px; height: 42px; }
+      .brand-mark { width: 36px; height: 36px; }
+      .logo { font-size: 1.08rem; letter-spacing: 0.22em; }
+      .hero { padding: 62px 0 52px; }
+      h1 { font-size: clamp(2.8rem, 13.5vw, 4.4rem); }
+      .hero-subtitle { font-size: 1.04rem; }
+      .btn-primary { width: 100%; min-width: 100%; }
+      .btn-secondary { width: 100%; }
+      .hero-proof, .status-grid, .feature-grid, .steps, .testimonials-grid, .trust-panel { grid-template-columns: 1fr; }
+      .game-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .controls-row { flex-direction: column; align-items: stretch; }
+      .filters-row { justify-content: center; }
+      .filter-btn { flex: 1 1 auto; text-align: center; }
+      .sort-wrap { justify-content: space-between; }
+      .sort-select { flex: 1; }
+      .game-card h3 { font-size: 0.9rem; }
+      .game-card p { font-size: 0.78rem; }
+      .pagination { flex-wrap: wrap; }
+      .window-body { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .launcher-shell { width: 100%; }
+      .floating-card { display: none; }
+      .orbital-ring { display: none; }
+      .dash-head { flex-direction: column; }
+      .tool-item { grid-template-columns: 42px 1fr; }
+      .tool-state { grid-column: 1 / -1; width: fit-content; }
+      section { padding: 64px 0; }
+      .showcase-copy, .testimonial-card { padding: 24px; }
+      .showcase-panel { padding: 14px; border-radius: 30px; }
+      .testimonial-card { min-height: auto; }
+      .final-panel { padding: 36px 22px; border-radius: 30px; }
+      .mobile-download-bar { display: block; }
+      footer { padding-bottom: 108px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* VoidLoader launcher refresh */
+    .brand-mark {
+      clip-path: none;
+      border-radius: 13px;
+      background: linear-gradient(145deg, #22d3ee 0%, #0891b2 55%, #164e63 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 0 24px rgba(34,211,238,.28);
+      transform: rotate(-4deg);
+    }
+    .brand-mark::after { transform: rotate(4deg); }
+    .brand:hover .brand-mark { transform: rotate(0deg) scale(1.04); }
+    .brand:hover .brand-mark::after { transform: rotate(0deg); }
+    .launcher-shell { filter: saturate(1.04); }
+    .window-title { letter-spacing: .14em; }
+    .sidebar { position: relative; }
+    .sidebar::after {
+      content: '';
+      position: absolute;
+      top: 18px; bottom: 18px; right: 0;
+      width: 1px;
+      background: linear-gradient(transparent, rgba(34,211,238,.22), transparent);
+      pointer-events: none;
+    }
+    .side-item:not(.active) { background: rgba(255,255,255,.015); }
+    .side-item:not(.active):hover {
+      background: rgba(34,211,238,.07);
+      border-color: rgba(34,211,238,.12);
+      transform: translateX(2px);
+    }
+    .dashboard { background: linear-gradient(145deg, rgba(12,25,41,.38), rgba(7,17,30,.12)); }
+    .status-card, .tool-item {
+      border-color: rgba(148,177,202,.13);
+      background: linear-gradient(145deg, rgba(24,42,61,.86), rgba(15,27,42,.9));
+    }
+    .tool-item.active {
+      border-color: rgba(34,211,238,.32);
+      box-shadow: 0 12px 30px rgba(0,0,0,.16);
+    }
+
+    /* VoidLoader: utilitarian console styling, while preserving the game grid */
+    header {
+      background: rgba(5, 13, 23, .94);
+      border-bottom: 1px solid rgba(34,211,238,.16);
+    }
+    .nav {
+      border-radius: 12px;
+      padding: 5px;
+      gap: 3px;
+      background: #0b1724;
+      border: 1px solid #1d3446;
+      box-shadow: none;
+    }
+    .nav a { border-radius: 8px; padding: 10px 14px; color: #9bb4c6; }
+    .nav a:hover { background: #132a39; color: #e7fbff; }
+    .header-download {
+      border-radius: 9px;
+      background: #b9f34a;
+      color: #10200c;
+      border: 1px solid #b9f34a;
+      box-shadow: 3px 3px 0 #42621f;
+    }
+    .header-download:hover { transform: translate(-1px,-1px); box-shadow: 5px 5px 0 #42621f; }
+    .brand-mark {
+      border-radius: 10px;
+      transform: none;
+      background: #b9f34a;
+      box-shadow: 0 0 0 3px #132a32, 0 0 0 4px #365b61;
+    }
+    .brand-mark::after { color: #0b1720; }
+    .logo { letter-spacing: .08em; text-shadow: none; }
+    .launcher-shell { transform: rotateY(-4deg) rotateX(1deg); }
+    .launcher-window {
+      border-radius: 19px;
+      background: #0a1420;
+      border: 1px solid #284253;
+      box-shadow: 12px 12px 0 rgba(0,0,0,.22);
+    }
+    .window-top {
+      background: #101e2b;
+      border-bottom: 1px solid #263c4c;
+    }
+    .window-title { letter-spacing: .08em; font-size: .78rem; }
+    .window-status { border-radius: 7px; background: #b9f34a; border-color: #b9f34a; color: #14220c; }
+    .window-status::before { background: #31571a; box-shadow: none; }
+    .window-body { grid-template-columns: 142px 1fr; }
+    .sidebar {
+      background: #0c1824;
+      border-right: 1px solid #253b4b;
+      padding: 20px 12px;
+    }
+    .side-label {
+      display: flex; justify-content: space-between; align-items: center;
+      margin: 14px 8px 9px; color: #7795a7; font-size: .62rem; letter-spacing: .15em;
+    }
+    .side-label span { color: #b9f34a; }
+    .side-item {
+      border-radius: 8px; padding: 10px 9px; gap: 8px; font-size: .78rem;
+      color: #a8bfce; margin-bottom: 5px;
+    }
+    .side-item small { margin-left: auto; color: #5f7a8d; font-size: .61rem; }
+    .side-icon {
+      border-radius: 6px; width: 22px; height: 22px;
+      background: #142737; border-color: #284253; color: #9cb7c7;
+    }
+    .side-item.active {
+      background: #172c35; border-color: #496a3b; color: #efffe0;
+      box-shadow: inset 3px 0 #b9f34a;
+    }
+    .side-item.active .side-icon { background: #b9f34a; color: #10200c; border-color: #b9f34a; }
+    .connection-item .side-icon { color: #b9f34a; font-size: .55rem; }
+    .dashboard { background: #0d1925; }
+    .dash-head h3 { font-size: 1.55rem; letter-spacing: -.055em; }
+    .dash-head p { color: #8ba6b8; }
+    .mini-btn {
+      border-radius: 8px; background: #142737; border-color: #2c4758;
+      color: #c4d5df; font-size: .65rem; letter-spacing: .08em;
+    }
+    .version-dot { display:inline-block; width:6px; height:6px; margin-right:5px; border-radius:50%; background:#b9f34a; }
+    .status-card, .tool-item {
+      border-radius: 12px; background: #122230; border-color: #263d4e;
+    }
+    .tool-item.active { background: #142a35; border-color: #54713c; }
+    .tool-item.active::after { background: #b9f34a; box-shadow: none; }
+    .tool-icon { border-radius: 9px; background: #1a3542; color: #b9f34a; }
+    .floating-card { border-radius: 12px; box-shadow: 5px 5px 0 rgba(0,0,0,.24); }
+    .float-icon { border-radius: 8px; background: #142737; border-color: #2c4758; }
+    @media (max-width: 700px) {
+      .nav { display: none; }
+      .header-download { min-width: 104px; }
+      .launcher-shell { transform: none; }
+    }
+
+  
+    /* Top navigation polish: keep the catalogue grid and card order unchanged. */
+    @media (min-width: 761px) {
+      .header-inner { display: grid; grid-template-columns: auto 1fr auto; }
+      .nav { justify-self: center; }
+    }
+    @media (max-width: 760px) {
+      .header-inner { min-height: 70px; gap: 10px; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; }
+      .logo { font-size: 0.98rem; letter-spacing: 0.08em; }
+      .brand { gap: 9px; }
+      .brand-mark { width: 36px; height: 36px; flex-basis: 36px; }
+      .nav { order: 3; width: 100%; justify-content: flex-start; overflow-x: auto; border-radius: 14px; }
+      .nav a { white-space: nowrap; padding: 9px 12px; }
+      .header-download { min-width: 94px; height: 38px; }
+    }
+  
+    /* Polished sorting control */
+    .sort-wrap { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .sort-wrap label { color:var(--text-muted); font-size:.82rem; font-weight:800; letter-spacing:.04em; }
+    .sort-select {
+      appearance:none; -webkit-appearance:none; -moz-appearance:none;
+      min-width:190px; max-width:100%; padding:12px 42px 12px 15px;
+      border-radius:14px; border:1px solid rgba(34,211,238,.38);
+      color:var(--text); background-color:#0b1a29;
+      font:700 .9rem Inter, sans-serif; line-height:1.3; cursor:pointer;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.04), 0 6px 18px rgba(0,0,0,.16);
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2367e8f9' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat:no-repeat; background-position:right 14px center; transition:border-color .2s, box-shadow .2s;
+    }
+    .sort-select:hover,.sort-select:focus { outline:none; border-color:#22d3ee; box-shadow:0 0 0 3px rgba(34,211,238,.12); }
+    .sort-select option { background:#0b1a29; color:#eaf7ff; padding:10px; }
+    @media(max-width:600px) { .sort-wrap { width:100%; } .sort-select { flex:1; min-width:0; } }
+
+    /* Final polish: cleaner feature icons and no top navigation bar */
+    header { display: none !important; }
+    .hero { padding-top: 46px; }
+    .feature-icon {
+      width: 54px;
+      height: 54px;
+      clip-path: none;
+      border: 0 !important;
+      border-radius: 16px;
+      background: #123c4b !important;
+      color: #65e8f7;
+      box-shadow: inset 0 0 0 1px rgba(101,232,247,.10);
+      margin-bottom: 20px;
+      transform: none;
+    }
+    .feature-card:hover .feature-icon {
+      transform: translateY(-1px);
+      background: #164657 !important;
+      box-shadow: inset 0 0 0 1px rgba(101,232,247,.16);
+    }
+
+    .download-password { margin: 12px 0 0; color: #8eafbf; font-size: 13px; }
+    .download-password strong { color: #22d3ee; font-weight: 800; letter-spacing: .02em; }
+    .compact-password { display: inline-block; margin: 0 0 0 10px; font-size: 11px; white-space: nowrap; }
+    .modal-password { margin: 12px 0 20px; }
+    .mobile-download-bar .compact-password { display: block; text-align: center; margin: 6px 0 0; }
+  
+    /* Animation stability and accessibility fixes */
+    .floating-card, .progress-fill::after { will-change: transform; }
+    .floating-card { backface-visibility: hidden; transform: translateZ(0); }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+      .floating-card { animation: none !important; transform: none !important; }
+      .progress-fill::after { animation: none !important; }
+    }
+    @media (max-width: 720px) {
+      .floating-card { animation-duration: 7s; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="spotlight" aria-hidden="true"></div>
+
+  <div class="page">
+    <header>
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="VoidLoader Launcher home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="logo">VoidLoader</span>
+        </a>
+
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#features">Features</a>
+          <a href="#cheats">Games</a>
+          <a href="#preview">Launcher</a>
+          <a href="#testimonials">Community</a>
+        </nav>
+
+        <a class="header-download" href="https://www.mediafire.com/file/kzg0ckau0aps5gs/VoidLoader.zip/file" target="_blank" rel="noopener noreferrer">Download</a>
+        <span class="download-password compact-password">Password: <strong>VoidLoader</strong></span>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal visible">
+            <div class="eyebrow"><span class="eyebrow-dot"></span> Updated cheats • 89 Games Supported • Windows 10/11 • Premium cheat launcher</div>
+            <h1><span class="gradient-text">Premium</span> cheat launcher.</h1>
+
+            <div class="cta-row">
+              <a class="btn btn-primary" href="https://www.mediafire.com/file/kzg0ckau0aps5gs/VoidLoader.zip/file" target="_blank" rel="noopener noreferrer">
+                <span>Download</span>
+              </a>
+              <a class="btn btn-secondary" href="#cheats">View all cheats</a>
+            </div>
+
+            <p class="download-password" role="note">Archive password: <strong>VoidLoader</strong></p>
+
+            <div class="download-meta" aria-label="Download details">
+              <span>Secure Host</span>
+              <span>Windows 10 / 11</span>
+              <span>Premium stability</span>
+              <span>Instant redirect</span>
+            </div>
+
+            <div class="hero-proof">
+              <div class="proof-card"><strong>Fast</strong><small>One‑click redirect to download.</small></div>
+              <div class="proof-card"><strong>Clean</strong><small>Premium dark UI with glass panels.</small></div>
+            </div>
+          </div>
+
+          <div class="preview-wrap reveal visible" id="preview">
+            <div class="orbital-ring" aria-hidden="true"></div>
+
+            <div class="floating-card one" aria-hidden="true">
+              <div class="float-icon">↻</div>
+              <div><strong>Reliable</strong><span>stable download link</span></div>
+            </div>
+            <div class="floating-card two" aria-hidden="true">
+              <div class="float-icon">89</div>
+              <div><strong>Cheat library</strong><span>89 supported titles</span></div>
+            </div>
+            <div class="floating-card three" aria-hidden="true">
+              <div class="float-icon">⚡</div>
+              <div><strong>Instant access</strong><span>launcher‑first flow</span></div>
+            </div>
+
+            <div class="launcher-shell" data-tilt="">
+              <div class="launcher-window">
+                <div class="window-top">
+                  <div class="window-dots"><span></span><span></span><span></span></div>
+                  <div class="window-title">VoidLoader LAUNCHER</div>
+                  <div class="window-status">READY</div>
+                </div>
+                <div class="window-body">
+                  <aside class="sidebar">
+                    <div class="side-label">WORKSPACE <span>01</span></div>
+                    <div class="side-item active"><span class="side-icon">▰</span>Overview <small>01</small></div>
+                    <div class="side-item"><span class="side-icon">▦</span>Game vault <small>02</small></div>
+                    <div class="side-item"><span class="side-icon">↗</span>Activity <small>03</small></div>
+                    <div class="side-item"><span class="side-icon">⌁</span>Preferences <small>04</small></div>
+                    <div class="side-label">CONNECTION</div>
+                    <div class="side-item connection-item"><span class="side-icon">●</span>Systems online</div>
+                  </aside>
+
+                  <div class="dashboard">
+                    <div class="dash-head">
+                      <div>
+                        <h3>Workspace</h3>
+                        <p>Your setup at a glance. Library, builds and status in one place.</p>
+                      </div>
+                      <div class="mini-btn"><span class="version-dot"></span> BUILD 026</div>
+                    </div>
+
+                    <div class="status-grid">
+                      <div class="status-card"><span>Package</span><strong>Ready</strong></div>
+                      <div class="status-card"><span>Platform</span><strong>Win x64</strong></div>
+                      <div class="status-card"><span>Cheats</span><strong>89 loaded</strong></div>
+                    </div>
+
+                    <div class="tool-list">
+                      <div class="tool-item active">
+                        <div class="tool-icon">V</div>
+                        <div class="tool-copy"><strong>Valorant Hack</strong><span>ESP / Aimbot ready</span></div>
+                        <div class="tool-state">Ready</div>
+                      </div>
+                      <div class="tool-item">
+                        <div class="tool-icon">F</div>
+                        <div class="tool-copy"><strong>Fortnite Skinchanger</strong><span>Update available</span></div>
+                        <div class="tool-state">Update</div>
+                      </div>
+                      <div class="tool-item">
+                        <div class="tool-icon">G</div>
+                        <div class="tool-copy"><strong>GTA 5 Mod Menu</strong><span>Profile detected</span></div>
+                        <div class="tool-state">Synced</div>
+                      </div>
+                    </div>
+
+                    <div class="progress-panel">
+                      <div class="progress-top"><span>Preparing secure link</span><span>100%</span></div>
+                      <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-strip">
+        <div class="container reveal visible">
+          <div class="trust-panel premium-border">
+            <div class="trust-item"><strong>Premium feel</strong><span>Glass UI, depth, glow and motion.</span></div>
+            <div class="trust-item"><strong>Secure link</strong><span>Downloads via high-trust host.</span></div>
+            <div class="trust-item"><strong>Always updated</strong><span>Constant access to latest version.</span></div>
+            <div class="trust-item"><strong>Mobile ready</strong><span>Sticky Download bar on phones.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features">
+        <div class="container">
+          <div class="section-head reveal visible">
+            <span class="section-kicker">Advanced Gameplay Launcher — Professional Toolkit</span>
+            <h2 class="section-title">This is not a random script collection but a full-featured control system designed for experienced players.</h2>
+            <p class="section-subtitle">The interface follows modern software standards: clear layout, intuitive settings, and instant response.</p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card reveal visible">
+              <div class="feature-icon">↯</div>
+              <h3>One‑click installation</h3>
+              <p>Get a working tool in seconds with automatic setup and configuration.</p>
+            </article>
+            <article class="feature-card reveal visible">
+              <div class="feature-icon">⟳</div>
+              <h3>Reliable updates</h3>
+              <p>Secure channel delivery ensures you always have the latest version with zero hassle.</p>
+            </article>
+            <article class="feature-card reveal visible">
+              <div class="feature-icon">⚙</div>
+              <h3>Flexible tuning</h3>
+              <p>From subtle tweaks to full customisation—adapt the tool to match your playstyle.</p>
+            </article>
+            <article class="feature-card reveal visible">
+              <div class="feature-icon">◉</div>
+              <h3>Built‑in logging</h3>
+              <p>Feedback and event tracking show you exactly what's happening at all times.</p>
+            </article>
+            <article class="feature-card reveal visible">
+              <div class="feature-icon">⬇</div>
+              <h3>Trusted downloads</h3>
+              <p>Direct access from official sources—no ad traps, fake files or unnecessary redirects.</p>
+            </article>
+            <article class="feature-card reveal visible">
+              <div class="feature-icon">◎</div>
+              <h3>Universal compatibility</h3>
+              <p>A growing library layout designed to make supported titles easier to browse.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container reveal visible">
+          <div class="showcase-panel premium-border">
+            <div class="showcase-copy">
+              <span class="section-kicker">Why choose us</span>
+              <h2>A polished, premium interface — no outdated forms or pixelated icons.</h2>
+              <p>Direct download from a trusted host — no ad traps or fake files.</p>
+              <div class="bullet-list">
+                <div class="bullet">Supports all popular versions and platforms.</div>
+                <div class="bullet">Clear navigation and a compact game catalogue.</div>
+                <div class="bullet">Professional toolkit built for serious players.</div>
+                <div class="bullet">Instant setup and reliable performance guaranteed.</div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-quote">
+                “The layout is easy to scan, and I can find the section I need without digging through a dozen menus. The compact cards make the library feel much more organized.”
+              </div>
+              <div class="testimonial-author">
+                <div class="author-avatar">D</div>
+                <div class="author-info">
+                  <strong>Community feedback</strong>
+                  <span>Interface note • sample copy</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cheats">
+        <div class="container">
+          <div class="section-head reveal visible">
+            <span class="section-kicker">Supported cheats</span>
+            <h2 class="section-title">Cheat library — 89 supported games</h2>
+            <p class="section-subtitle">Browse cover art and game pages. Download figures are illustrative display values until real analytics are connected; game cards remain in their current order. Search, filter by type and sort the library.</p>
+          </div>
+
+          <div style="margin-bottom: 32px; position: relative;">
+            <input type="text" id="gameSearch" placeholder="Search games (e.g., Fortnite, Valorant, Minecraft)..." style="width: 100%; padding: 14px 150px 14px 18px; border-radius: 16px; border: 1px solid rgba(139, 92, 246, 0.4); background: rgba(22, 11, 36, 0.6); color: var(--text); font-size: 1rem; font-family: Inter, sans-serif; transition: 0.25s; box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px inset, rgba(139, 92, 246, 0.15) 0px 0px 20px;" onmouseover="this.style.borderColor='rgba(139, 92, 246, 0.6)'; this.style.boxShadow='inset 0 1px 3px rgba(0,0,0,0.2), 0 0 30px rgba(6,182,212,0.25)';" onmouseout="this.style.borderColor='rgba(139, 92, 246, 0.4)'; this.style.boxShadow='inset 0 1px 3px rgba(0,0,0,0.2), 0 0 20px rgba(6,182,212,0.15)';" onfocus="this.style.outline='none'; this.style.borderColor='rgba(139, 92, 246, 0.8)'; this.style.boxShadow='inset 0 1px 3px rgba(0,0,0,0.2), 0 0 40px rgba(6,182,212,0.35)';" onblur="this.style.borderColor='rgba(139, 92, 246, 0.4)'; this.style.boxShadow='inset 0 1px 3px rgba(0,0,0,0.2), 0 0 20px rgba(6,182,212,0.15)';">
+          <div class="search-count">89 games found</div></div>
+
+          <div class="library-controls">
+            <div class="controls-row">
+              <div class="filters-row" id="filterRow">
+                <button class="filter-btn active" data-filter="all" type="button">All games</button>
+                <button class="filter-btn" data-filter="Cheat" type="button">Cheats</button>
+                <button class="filter-btn" data-filter="Skinchanger" type="button">Skins</button>
+                <button class="filter-btn" data-filter="Mod Menu" type="button">Mod menus</button>
+                <button class="filter-btn" data-filter="Executor|Hack" type="button">Utilities</button>
+              </div>
+
+              <div class="sort-wrap">
+                <label for="sortSelect">Sort by:</label>
+                <select class="sort-select" id="sortSelect">
+                  <option value="featured">Recommended order</option>
+                  <option value="popular" selected>Most downloaded</option>
+                  <option value="alpha">Name (A–Z)</option>
+                  <option value="updated">Recently updated</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="game-grid" id="gameGrid">
+            <!-- 1-10 -->
+            
+            
+            
+            
+            <article class="game-card" data-tag="Hack" data-dl="1239" data-status="New" data-title="Minecraft Hacked Client" data-desc="Advanced utility bundle" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/minecraft-cover.png" alt="Minecraft" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Minecraft</span><span class="game-tag">Hack</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Minecraft Hacked Client</h3><p>Advanced utility bundle</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">0.3K</span></div></div></article>
+            
+            <article class="game-card" data-tag="Executor" data-dl="2281" data-status="Updated" data-title="Roblox Executor" data-desc="Script injection engine" style="cursor: pointer; display: none;"><div class="game-media logo-art invert" style="background:linear-gradient(135deg,#18181b,#3f3f46)"><img src="img/Roblox_Logo_2022.svg" alt="Roblox" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Roblox</span><span class="game-tag">Executor</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Roblox Executor</h3><p>Script injection engine</p><div class="game-meta"><span class="game-rating">★ 4.7</span><span class="game-dl">0.5K</span></div></div></article>
+            <article class="game-card" data-tag="Mod Menu" data-dl="205" data-status="Updated" data-title="Forza Horizon 5 Mod Menu" data-desc="Engine &amp; cash tool" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header.jpg" alt="Forza Horizon 5" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Forza Horizon 5</span><span class="game-tag">Mod Menu</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Forza Horizon 5 Mod Menu</h3><p>Engine &amp; cash tool</p><div class="game-meta"><span class="game-rating">★ 4.7</span><span class="game-dl">0.8K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="600" data-status="New" data-title="Among Us Cheat" data-desc="Impostor discovery toolkit" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_1.jpg" alt="Among Us" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Among Us</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Among Us Cheat</h3><p>Impostor discovery toolkit</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">1.0K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="2354" data-status="Updated" data-title="DayZ Cheat" data-desc="Survival &amp; loot manager" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_2.jpg" alt="DayZ" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">DayZ</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>DayZ Cheat</h3><p>Survival &amp; loot manager</p><div class="game-meta"><span class="game-rating">★ 4.6</span><span class="game-dl">1.3K</span></div></div></article>
+
+            <!-- 11-20 -->
+            
+            <article class="game-card" data-tag="Cheat" data-dl="462" data-status="New" data-title="Marvel Rivals Cheat" data-desc="Hero aim &amp; radar helpers" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_3.jpg" alt="Marvel Rivals" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Marvel Rivals</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Marvel Rivals Cheat</h3><p>Hero aim &amp; radar helpers</p><div class="game-meta"><span class="game-rating">★ 4.7</span><span class="game-dl">1.6K</span></div></div></article>
+            
+            <article class="game-card" data-tag="Cheat" data-dl="1244" data-status="Updated" data-title="Sea of Thieves Cheat" data-desc="Treasure finder &amp; auto-pilot" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_4.jpg" alt="Sea of Thieves" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Sea of Thieves</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Sea of Thieves Cheat</h3><p>Treasure finder &amp; auto-pilot</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">2.0K</span></div></div></article>
+            
+            
+            
+            
+            
+            
+
+            <!-- 21-30 -->
+            <article class="game-card" data-tag="Cheat" data-dl="1530" data-status="New" data-title="Path of Exile Cheat" data-desc="Automated action planner" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_6.jpg" alt="Path of Exile" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Path of Exile</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Path of Exile Cheat</h3><p>Automated action planner</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">2.3K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="104" data-status="Updated" data-title="FiveM Cheat" data-desc="Custom server triggers" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_5.jpg" alt="FiveM" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">FiveM</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>FiveM Cheat</h3><p>Custom server triggers</p><div class="game-meta"><span class="game-rating">★ 4.6</span><span class="game-dl">2.7K</span></div></div></article>
+            
+            
+            <article class="game-card" data-tag="Cheat" data-dl="565" data-status="New" data-title="Repo Man Cheat" data-desc="In-game helper engine" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_7.jpg" alt="R.E.P.O." loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Repo Man</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Repo Man Cheat</h3><p>In-game helper engine</p><div class="game-meta"><span class="game-rating">★ 4.4</span><span class="game-dl">0.3K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="1810" data-status="New" data-title="ARC Raiders Cheat" data-desc="Early-access game features" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_8.jpg" alt="ARC Raiders" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">ARC Raiders</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>ARC Raiders Cheat</h3><p>Early-access game features</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">0.8K</span></div></div></article>
+            
+            <article class="game-card" data-tag="Cheat" data-dl="2350" data-status="Popular" data-title="Team Fortress 2 Cheat" data-desc="Classic project setup" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_9.jpg" alt="Team Fortress 2" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Team Fortress 2</span><span class="game-tag">Cheat</span><span class="game-status s-popular">Popular</span><span class="game-details">View details</span></div><div class="game-body"><h3>Team Fortress 2 Cheat</h3><p>Classic project setup</p><div class="game-meta"><span class="game-rating">★ 4.6</span><span class="game-dl">1.2K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="406" data-status="New" data-title="Terraria Cheat" data-desc="Infinite inventory items" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_10.jpg" alt="Terraria" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Terraria</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Terraria Cheat</h3><p>Infinite inventory items</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">1.7K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="2126" data-status="Updated" data-title="Battlefield 2042 Cheat" data-desc="Complete operational helper" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_11.jpg" alt="Battlefield 2042" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Battlefield 2042</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Battlefield 2042 Cheat</h3><p>Complete operational helper</p><div class="game-meta"><span class="game-rating">★ 4.6</span><span class="game-dl">2.2K</span></div></div></article>
+
+            <!-- 31-40 -->
+            
+            <article class="game-card" data-tag="Cheat" data-dl="2766" data-status="New" data-title="Dead by Daylight Cheat" data-desc="Survivor &amp; Killer helper" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_12.jpg" alt="Dead by Daylight" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Dead by Daylight</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Dead by Daylight Cheat</h3><p>Survivor &amp; Killer helper</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">2.7K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="2126" data-status="Updated" data-title="Dota 2 Cheat" data-desc="Auto-combo &amp; map vision" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_13.jpg" alt="Dota 2" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Dota 2</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Dota 2 Cheat</h3><p>Auto-combo &amp; map vision</p><div class="game-meta"><span class="game-rating">★ 4.7</span><span class="game-dl">0.5K</span></div></div></article>
+            
+            <article class="game-card" data-tag="Cheat" data-dl="120" data-status="New" data-title="Palworld Cheat" data-desc="Catch rate &amp; stamina modifier" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_14.jpg" alt="Palworld" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Palworld</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Palworld Cheat</h3><p>Catch rate &amp; stamina modifier</p><div class="game-meta"><span class="game-rating">★ 4.6</span><span class="game-dl">1.0K</span></div></div></article>
+            
+            <article class="game-card" data-tag="Cheat" data-dl="432" data-status="Popular" data-title="Destiny 2 Cheat" data-desc="PVP aim &amp; infinite heavy ammo" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_15.jpg" alt="Destiny 2" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Destiny 2</span><span class="game-tag">Cheat</span><span class="game-status s-popular">Popular</span><span class="game-details">View details</span></div><div class="game-body"><h3>Destiny 2 Cheat</h3><p>PVP aim &amp; infinite heavy ammo</p><div class="game-meta"><span class="game-rating">★ 4.6</span><span class="game-dl">1.6K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="886" data-status="New" data-title="Hunt: Showdown Cheat" data-desc="Hunter ESP &amp; silent aim" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_16.jpg" alt="Hunt: Showdown" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Hunt: Showdown</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Hunt: Showdown Cheat</h3><p>Hunter ESP &amp; silent aim</p><div class="game-meta"><span class="game-rating">★ 4.7</span><span class="game-dl">2.2K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="1382" data-status="Updated" data-title="Cyberpunk 2077 Cheat" data-desc="Eddie generator &amp; god build" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_17.jpg" alt="Cyberpunk 2077" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Cyberpunk 2077</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Cyberpunk 2077 Cheat</h3><p>Eddie generator &amp; god build</p><div class="game-meta"><span class="game-rating">★ 4.8</span><span class="game-dl">2.8K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="205" data-status="New" data-title="Payday 3 Cheat" data-desc="Stealth helper &amp; keycard unlock" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_19.jpg" alt="Payday 3" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Payday 3</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Payday 3 Cheat</h3><p>Stealth helper &amp; keycard unlock</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">0.7K</span></div></div></article>
+
+            <!-- 41-50 -->
+            <article class="game-card" data-tag="Cheat" data-dl="1733" data-status="New" data-title="Fall Guys Cheat" data-desc="Speed hack &amp; auto-win" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_18.jpg" alt="Fall Guys" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Fall Guys</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Fall Guys Cheat</h3><p>Speed hack &amp; auto-win</p><div class="game-meta"><span class="game-rating">★ 4.4</span><span class="game-dl">1.4K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="1925" data-status="Updated" data-title="Rocket League Cheat" data-desc="Auto-goal predictor &amp; flip reset" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_20.jpg" alt="Rocket League" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Rocket League</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Rocket League Cheat</h3><p>Auto-goal predictor &amp; flip reset</p><div class="game-meta"><span class="game-rating">★ 4.6</span><span class="game-dl">2.1K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="406" data-status="New" data-title="CrossFire Cheat" data-desc="Wallhack &amp; fast knife" style="cursor: pointer; display: none;"><div class="game-media logo-art lift" style="background:linear-gradient(135deg,#1c1917,#7c2d12)"><img src="img/CrossFire_%28video_game%29_logo.png" alt="CrossFire" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">CrossFire</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>CrossFire Cheat</h3><p>Wallhack &amp; fast knife</p><div class="game-meta"><span class="game-rating">★ 4.4</span><span class="game-dl">2.8K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="2214" data-status="Updated" data-title="World of Tanks Cheat" data-desc="Armor thickness &amp; weakspot indicator" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_21.jpg" alt="World of Tanks" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">World of Tanks</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>World of Tanks Cheat</h3><p>Armor thickness &amp; weakspot indicator</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">0.8K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="2551" data-status="New" data-title="World of Warships Cheat" data-desc="Lead aim predictor" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_22.jpg" alt="World of Warships" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">World of Warships</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>World of Warships Cheat</h3><p>Lead aim predictor</p><div class="game-meta"><span class="game-rating">★ 4.4</span><span class="game-dl">1.5K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="2214" data-status="Popular" data-title="Starfield Cheat" data-desc="Credits &amp; shipbuilder unlocker" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_23.jpg" alt="Starfield" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Starfield</span><span class="game-tag">Cheat</span><span class="game-status s-popular">Popular</span><span class="game-details">View details</span></div><div class="game-body"><h3>Starfield Cheat</h3><p>Credits &amp; shipbuilder unlocker</p><div class="game-meta"><span class="game-rating">★ 4.6</span><span class="game-dl">2.3K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="955" data-status="New" data-title="Honkai: Star Rail Cheat" data-desc="Speed multiplier &amp; auto-battle" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/Honkai_Star_Rail_Gameplay_Battle.png" alt="Honkai: Star Rail" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Honkai: Star Rail</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Honkai: Star Rail Cheat</h3><p>Speed multiplier &amp; auto-battle</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">0.3K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="1475" data-status="Updated" data-title="Left 4 Dead 2 Cheat" data-desc="Aimbot &amp; infinite pipe bombs" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_24.jpg" alt="Left 4 Dead 2" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Left 4 Dead 2</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Left 4 Dead 2 Cheat</h3><p>Aimbot &amp; infinite pipe bombs</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">1.2K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="1983" data-status="New" data-title="Far Cry 6 Cheat" data-desc="Stealth mode &amp; unlimited ammo" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_25.jpg" alt="Far Cry 6" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Far Cry 6</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Far Cry 6 Cheat</h3><p>Stealth mode &amp; unlimited ammo</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">2.0K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="2043" data-status="Updated" data-title="Assassins Creed Mirage Cheat" data-desc="Stealth &amp; skill point unlock" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_26.jpg" alt="Assassin's Creed Mirage" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Assassin's Creed Mirage</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Assassins Creed Mirage Cheat</h3><p>Stealth &amp; skill point unlock</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">2.9K</span></div></div></article>
+
+            <!-- 51-60 -->
+            <article class="game-card" data-tag="Cheat" data-dl="2138" data-status="New" data-title="S.T.A.L.K.E.R. 2 Cheat" data-desc="Artifact radar &amp; stamina boost" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_27.jpg" alt="S.T.A.L.K.E.R. 2" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">S.T.A.L.K.E.R. 2</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>S.T.A.L.K.E.R. 2 Cheat</h3><p>Artifact radar &amp; stamina boost</p><div class="game-meta"><span class="game-rating">★ 4.6</span><span class="game-dl">1.0K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="1239" data-status="Popular" data-title="The Finals Cheat" data-desc="Cashout ESP &amp; laser recoil" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_28.jpg" alt="The Finals" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">The Finals</span><span class="game-tag">Cheat</span><span class="game-status s-popular">Popular</span><span class="game-details">View details</span></div><div class="game-body"><h3>The Finals Cheat</h3><p>Cashout ESP &amp; laser recoil</p><div class="game-meta"><span class="game-rating">★ 4.6</span><span class="game-dl">1.9K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="1344" data-status="New" data-title="Paladins Cheat" data-desc="360 aimbot &amp; triggerbot" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_29.jpg" alt="Paladins" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Paladins</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Paladins Cheat</h3><p>360 aimbot &amp; triggerbot</p><div class="game-meta"><span class="game-rating">★ 4.4</span><span class="game-dl">2.9K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="1707" data-status="Updated" data-title="Smite Cheat" data-desc="Auto skillshots &amp; cooldown helper" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_30.jpg" alt="Smite" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Smite</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Smite Cheat</h3><p>Auto skillshots &amp; cooldown helper</p><div class="game-meta"><span class="game-rating">★ 4.4</span><span class="game-dl">1.1K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="1502" data-status="New" data-title="Sons of the Forest Cheat" data-desc="Item spawner &amp; infinite build" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_31.jpg" alt="Sons of the Forest" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Sons of the Forest</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Sons of the Forest Cheat</h3><p>Item spawner &amp; infinite build</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">2.0K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="192" data-status="Updated" data-title="Valheim Cheat" data-desc="Fly mode &amp; resource generator" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_32.jpg" alt="Valheim" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Valheim</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Valheim Cheat</h3><p>Fly mode &amp; resource generator</p><div class="game-meta"><span class="game-rating">★ 4.6</span><span class="game-dl">0.3K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="2617" data-status="New" data-title="ARK: Survival Ascended Cheat" data-desc="Dino locator &amp; wallhack" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_33.jpg" alt="ARK: Survival Ascended" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">ARK: Survival Ascended</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>ARK: Survival Ascended Cheat</h3><p>Dino locator &amp; wallhack</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">1.3K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="2210" data-status="Updated" data-title="Conan Exiles Cheat" data-desc="Speed &amp; building unlocker" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_34.jpg" alt="Conan Exiles" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Conan Exiles</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Conan Exiles Cheat</h3><p>Speed &amp; building unlocker</p><div class="game-meta"><span class="game-rating">★ 4.4</span><span class="game-dl">2.4K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="1878" data-status="New" data-title="Scum Cheat" data-desc="Fame point boost &amp; ESP" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_35.jpg" alt="SCUM" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">SCUM</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Scum Cheat</h3><p>Fame point boost &amp; ESP</p><div class="game-meta"><span class="game-rating">★ 4.4</span><span class="game-dl">0.7K</span></div></div></article>
+
+            <!-- 61-70 -->
+            <article class="game-card" data-tag="Cheat" data-dl="1962" data-status="Popular" data-title="Phasmophobia Cheat" data-desc="Ghost type identification &amp; sanity locked" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_36.jpg" alt="Phasmophobia" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Phasmophobia</span><span class="game-tag">Cheat</span><span class="game-status s-popular">Popular</span><span class="game-details">View details</span></div><div class="game-body"><h3>Phasmophobia Cheat</h3><p>Ghost type identification &amp; sanity locked</p><div class="game-meta"><span class="game-rating">★ 4.6</span><span class="game-dl">1.8K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="414" data-status="Updated" data-title="Lethal Company Cheat" data-desc="Monster radar &amp; infinite scrap value" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_37.jpg" alt="Lethal Company" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Lethal Company</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Lethal Company Cheat</h3><p>Monster radar &amp; infinite scrap value</p><div class="game-meta"><span class="game-rating">★ 4.6</span><span class="game-dl">0.1K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="968" data-status="New" data-title="Content Warning Cheat" data-desc="View multiplier &amp; infinite battery" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_38.jpg" alt="Content Warning" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Content Warning</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Content Warning Cheat</h3><p>View multiplier &amp; infinite battery</p><div class="game-meta"><span class="game-rating">★ 4.4</span><span class="game-dl">1.3K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="968" data-status="Updated" data-title="Arma Reforger Cheat" data-desc="Tactical map &amp; distance radar" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_39.jpg" alt="Arma Reforger" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Arma Reforger</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Arma Reforger Cheat</h3><p>Tactical map &amp; distance radar</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">2.5K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="1110" data-status="Popular" data-title="Squad Cheat" data-desc="Infantry &amp; vehicle wallhack" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_40.jpg" alt="Squad" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Squad</span><span class="game-tag">Cheat</span><span class="game-status s-popular">Popular</span><span class="game-details">View details</span></div><div class="game-body"><h3>Squad Cheat</h3><p>Infantry &amp; vehicle wallhack</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">0.9K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="232" data-status="New" data-title="Hell Let Loose Cheat" data-desc="Arty calculator &amp; enemy ESP" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_41.jpg" alt="Hell Let Loose" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Hell Let Loose</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Hell Let Loose Cheat</h3><p>Arty calculator &amp; enemy ESP</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">2.1K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="1344" data-status="Updated" data-title="Enlisted Cheat" data-desc="Squad aimbot &amp; air radar" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_49.jpg" alt="Enlisted" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Enlisted</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Enlisted Cheat</h3><p>Squad aimbot &amp; air radar</p><div class="game-meta"><span class="game-rating">★ 4.4</span><span class="game-dl">0.5K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="961" data-status="New" data-title="Insurgency: Sandstorm Cheat" data-desc="No recoil &amp; clear vision" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_42.jpg" alt="Insurgency: Sandstorm" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Insurgency: Sandstorm</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Insurgency: Sandstorm Cheat</h3><p>No recoil &amp; clear vision</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">1.8K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="567" data-status="Popular" data-title="Ready or Not Cheat" data-desc="Suspect position ESP &amp; mirror cam" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_43.jpg" alt="Ready or Not" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Ready or Not</span><span class="game-tag">Cheat</span><span class="game-status s-popular">Popular</span><span class="game-details">View details</span></div><div class="game-body"><h3>Ready or Not Cheat</h3><p>Suspect position ESP &amp; mirror cam</p><div class="game-meta"><span class="game-rating">★ 4.6</span><span class="game-dl">0.3K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="1660" data-status="Updated" data-title="Payday 2 Cheat" data-desc="Ultimate stealth &amp; cash printer" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_44.jpg" alt="Payday 2" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Payday 2</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Payday 2 Cheat</h3><p>Ultimate stealth &amp; cash printer</p><div class="game-meta"><span class="game-rating">★ 4.6</span><span class="game-dl">1.6K</span></div></div></article>
+
+            <!-- 71-80 -->
+            <article class="game-card" data-tag="Cheat" data-dl="1613" data-status="New" data-title="Need for Speed Unbound Cheat" data-desc="Infinite nitrous &amp; instant cash" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_45.jpg" alt="Need for Speed Unbound" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Need for Speed Unbound</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Need for Speed Unbound Cheat</h3><p>Infinite nitrous &amp; instant cash</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">0.1K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="2022" data-status="Updated" data-title="The Crew Motorfest Cheat" data-desc="Speed hack &amp; nitrous boost" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_47.jpg" alt="The Crew Motorfest" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">The Crew Motorfest</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>The Crew Motorfest Cheat</h3><p>Speed hack &amp; nitrous boost</p><div class="game-meta"><span class="game-rating">★ 4.4</span><span class="game-dl">1.5K</span></div></div></article>
+            <article class="game-card" data-tag="Mod Menu" data-dl="697" data-status="Popular" data-title="Assetto Corsa Mod Pack" data-desc="Custom physics &amp; money engine" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_46.jpg" alt="Assetto Corsa" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Assetto Corsa</span><span class="game-tag">Mod Menu</span><span class="game-status s-popular">Popular</span><span class="game-details">View details</span></div><div class="game-body"><h3>Assetto Corsa Mod Pack</h3><p>Custom physics &amp; money engine</p><div class="game-meta"><span class="game-rating">★ 4.6</span><span class="game-dl">2.9K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="1244" data-status="New" data-title="EA Sports FC 24 Cheat" data-desc="Green timing &amp; opponent reveal" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_48.jpg" alt="EA Sports FC 24" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">EA Sports FC 24</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>EA Sports FC 24 Cheat</h3><p>Green timing &amp; opponent reveal</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">1.5K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="682" data-status="Updated" data-title="NBA 2K24 Cheat" data-desc="Green release &amp; auto green shot" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_50.jpg" alt="NBA 2K24" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">NBA 2K24</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>NBA 2K24 Cheat</h3><p>Green release &amp; auto green shot</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">0.1K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="587" data-status="New" data-title="Madden NFL 24 Cheat" data-desc="Playbook unlock &amp; fatigue bypass" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_74.jpg" alt="Madden NFL 24" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Madden NFL 24</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Madden NFL 24 Cheat</h3><p>Playbook unlock &amp; fatigue bypass</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">1.6K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="1796" data-status="Updated" data-title="WWE 2K24 Cheat" data-desc="Infinite finisher &amp; auto-reversal" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_55.jpg" alt="WWE 2K24" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">WWE 2K24</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>WWE 2K24 Cheat</h3><p>Infinite finisher &amp; auto-reversal</p><div class="game-meta"><span class="game-rating">★ 4.5</span><span class="game-dl">0.3K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="746" data-status="Popular" data-title="Street Fighter 6 Cheat" data-desc="Auto-parry &amp; perfect combo macro" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_51.jpg" alt="Street Fighter 6" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Street Fighter 6</span><span class="game-tag">Cheat</span><span class="game-status s-popular">Popular</span><span class="game-details">View details</span></div><div class="game-body"><h3>Street Fighter 6 Cheat</h3><p>Auto-parry &amp; perfect combo macro</p><div class="game-meta"><span class="game-rating">★ 4.7</span><span class="game-dl">1.8K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="1925" data-status="Updated" data-title="Tekken 8 Cheat" data-desc="Auto-block &amp; punish macro" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_52.jpg" alt="Tekken 8" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Tekken 8</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Tekken 8 Cheat</h3><p>Auto-block &amp; punish macro</p><div class="game-meta"><span class="game-rating">★ 4.7</span><span class="game-dl">0.5K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="2354" data-status="New" data-title="Mortal Kombat 1 Cheat" data-desc="Fatality macro &amp; infinite health" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_53.jpg" alt="Mortal Kombat 1" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Mortal Kombat 1</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Mortal Kombat 1 Cheat</h3><p>Fatality macro &amp; infinite health</p><div class="game-meta"><span class="game-rating">★ 4.6</span><span class="game-dl">2.0K</span></div></div></article>
+
+            <!-- 81-89 -->
+            <article class="game-card" data-tag="Cheat" data-dl="2157" data-status="Updated" data-title="Diablo IV Cheat" data-desc="Auto-farm &amp; gold pickup" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_54.jpg" alt="Diablo IV" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Diablo IV</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Diablo IV Cheat</h3><p>Auto-farm &amp; gold pickup</p><div class="game-meta"><span class="game-rating">★ 4.7</span><span class="game-dl">0.8K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="1239" data-status="New" data-title="Borderlands 3 Cheat" data-desc="Drop rate multiplier &amp; legendary unlock" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_56.jpg" alt="Borderlands 3" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Borderlands 3</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Borderlands 3 Cheat</h3><p>Drop rate multiplier &amp; legendary unlock</p><div class="game-meta"><span class="game-rating">★ 4.6</span><span class="game-dl">2.4K</span></div></div></article>
+            
+            
+            <article class="game-card" data-tag="Cheat" data-dl="2350" data-status="New" data-title="Nioh 2 Cheat" data-desc="Infinite Ki &amp; instant burst counter" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_57.jpg" alt="Nioh 2" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Nioh 2</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Nioh 2 Cheat</h3><p>Infinite Ki &amp; instant burst counter</p><div class="game-meta"><span class="game-rating">★ 4.7</span><span class="game-dl">1.2K</span></div></div></article>
+            <article class="game-card" data-tag="Cheat" data-dl="1382" data-status="Updated" data-title="Dark Souls 3 Cheat" data-desc="Item engine &amp; covenant farmer" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/header_58.jpg" alt="Dark Souls III" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Dark Souls III</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Dark Souls 3 Cheat</h3><p>Item engine &amp; covenant farmer</p><div class="game-meta"><span class="game-rating">★ 4.7</span><span class="game-dl">2.8K</span></div></div></article>
+            
+            <article class="game-card" data-tag="Mod Menu" data-dl="462" data-status="Updated" data-title="Bloodborne Mod Menu" data-desc="Insight &amp; blood echo generator" style="cursor: pointer; display: none;"><div class="game-media"><img src="img/Bloodborne_Cover_Wallpaper.jpg" alt="Bloodborne" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Bloodborne</span><span class="game-tag">Mod Menu</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Bloodborne Mod Menu</h3><p>Insight &amp; blood echo generator</p><div class="game-meta"><span class="game-rating">★ 4.7</span><span class="game-dl">1.7K</span></div></div></article>
+            
+            
+          <article class="game-card" data-tag="Cheat" data-dl="31164" data-status="Updated" data-title="Counter-Strike 2 Cheat" data-desc="Legit &amp; Rage configs" style="cursor: pointer; display: flex;"><div class="game-media"><img src="img/header_59.jpg" alt="Counter-Strike 2" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Counter-Strike 2</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Counter-Strike 2 Cheat</h3><p>Legit &amp; Rage configs</p><div class="game-meta"><span class="game-rating">★ 4.9</span><span class="game-dl">31.2K</span></div></div></article><article class="game-card" data-tag="Mod Menu" data-dl="28363" data-status="Popular" data-title="Grand Theft Auto V Mod Menu" data-desc="Premium mod features" style="cursor: pointer; display: flex;"><div class="game-media"><img src="img/header_5.jpg" alt="Grand Theft Auto V" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Grand Theft Auto V</span><span class="game-tag">Mod Menu</span><span class="game-status s-popular">Popular</span><span class="game-details">View details</span></div><div class="game-body"><h3>Grand Theft Auto V Mod Menu</h3><p>Premium mod features</p><div class="game-meta"><span class="game-rating">★ 4.9</span><span class="game-dl">28.4K</span></div></div></article><article class="game-card" data-tag="Cheat" data-dl="26650" data-status="Popular" data-title="Valorant Cheat" data-desc="Pro tournament features" style="cursor: pointer; display: flex;"><div class="game-media logo-art" style="background:linear-gradient(135deg,#241a1f,#4c1d3d)"><img src="img/Valorant_logo_-_pink_color_version.svg" alt="Valorant" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Valorant</span><span class="game-tag">Cheat</span><span class="game-status s-popular">Popular</span><span class="game-details">View details</span></div><div class="game-body"><h3>Valorant Cheat</h3><p>Pro tournament features</p><div class="game-meta"><span class="game-rating">★ 4.8</span><span class="game-dl">26.6K</span></div></div></article><article class="game-card" data-tag="Cheat" data-dl="26546" data-status="Popular" data-title="Helldivers 2 Cheat" data-desc="Infinite ammo &amp; strategems" style="cursor: pointer; display: flex;"><div class="game-media"><img src="img/header_60.jpg" alt="Helldivers 2" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Helldivers 2</span><span class="game-tag">Cheat</span><span class="game-status s-popular">Popular</span><span class="game-details">View details</span></div><div class="game-body"><h3>Helldivers 2 Cheat</h3><p>Infinite ammo &amp; strategems</p><div class="game-meta"><span class="game-rating">★ 4.8</span><span class="game-dl">26.5K</span></div></div></article><article class="game-card" data-tag="Cheat" data-dl="24446" data-status="Popular" data-title="Call of Duty: Warzone Cheat" data-desc="Full battle royale suite" style="cursor: pointer; display: flex;"><div class="game-media"><img src="img/header_61.jpg" alt="Call of Duty" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Call of Duty</span><span class="game-tag">Cheat</span><span class="game-status s-popular">Popular</span><span class="game-details">View details</span></div><div class="game-body"><h3>Call of Duty: Warzone Cheat</h3><p>Full battle royale suite</p><div class="game-meta"><span class="game-rating">★ 4.8</span><span class="game-dl">24.4K</span></div></div></article><article class="game-card" data-tag="Cheat" data-dl="24298" data-status="Popular" data-title="Apex Legends Cheat" data-desc="Polished visual helpers" style="cursor: pointer; display: flex;"><div class="game-media"><img src="img/header_62.jpg" alt="Apex Legends" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Apex Legends</span><span class="game-tag">Cheat</span><span class="game-status s-popular">Popular</span><span class="game-details">View details</span></div><div class="game-body"><h3>Apex Legends Cheat</h3><p>Polished visual helpers</p><div class="game-meta"><span class="game-rating">★ 4.8</span><span class="game-dl">24.3K</span></div></div></article><article class="game-card" data-tag="Skinchanger" data-dl="23946" data-status="Updated" data-title="Valorant Skinchanger" data-desc="Weapon skin generator" style="cursor: pointer; display: flex;"><div class="game-media logo-art" style="background:linear-gradient(135deg,#1f1720,#3f1d2b)"><img src="img/Valorant_logo_-_pink_color_version.svg" alt="Valorant" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Valorant</span><span class="game-tag">Skinchanger</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Valorant Skinchanger</h3><p>Weapon skin generator</p><div class="game-meta"><span class="game-rating">★ 4.8</span><span class="game-dl">23.9K</span></div></div></article><article class="game-card" data-tag="Cheat" data-dl="23305" data-status="Popular" data-title="Monster Hunter World Cheat" data-desc="Weakness highlight &amp; damage boost" style="cursor: pointer; display: flex;"><div class="game-media"><img src="img/header_63.jpg" alt="Monster Hunter World" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Monster Hunter World</span><span class="game-tag">Cheat</span><span class="game-status s-popular">Popular</span><span class="game-details">View details</span></div><div class="game-body"><h3>Monster Hunter World Cheat</h3><p>Weakness highlight &amp; damage boost</p><div class="game-meta"><span class="game-rating">★ 4.8</span><span class="game-dl">23.3K</span></div></div></article><article class="game-card" data-tag="Cheat" data-dl="23186" data-status="New" data-title="Overwatch 2 Cheat" data-desc="Smart aim configuration" style="cursor: pointer; display: flex;"><div class="game-media"><img src="img/header_64.jpg" alt="Overwatch 2" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Overwatch 2</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>Overwatch 2 Cheat</h3><p>Smart aim configuration</p><div class="game-meta"><span class="game-rating">★ 4.7</span><span class="game-dl">23.2K</span></div></div></article><article class="game-card" data-tag="Cheat" data-dl="23112" data-status="Popular" data-title="Tom Clancy's Rainbow Six Siege Cheat" data-desc="Wallhack &amp; no recoil" style="cursor: pointer; display: flex;"><div class="game-media"><img src="img/header_65.jpg" alt="Rainbow Six Siege" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Rainbow Six Siege</span><span class="game-tag">Cheat</span><span class="game-status s-popular">Popular</span><span class="game-details">View details</span></div><div class="game-body"><h3>Tom Clancy's Rainbow Six Siege Cheat</h3><p>Wallhack &amp; no recoil</p><div class="game-meta"><span class="game-rating">★ 4.8</span><span class="game-dl">23.1K</span></div></div></article><article class="game-card" data-tag="Cheat" data-dl="23017" data-status="Popular" data-title="Escape From Tarkov Cheat" data-desc="Loot radar &amp; ESP system" style="cursor: pointer; display: flex;"><div class="game-media"><img src="img/Escape_from_Tarkov.jpg" alt="Escape from Tarkov" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Escape From Tarkov</span><span class="game-tag">Cheat</span><span class="game-status s-popular">Popular</span><span class="game-details">View details</span></div><div class="game-body"><h3>Escape From Tarkov Cheat</h3><p>Loot radar &amp; ESP system</p><div class="game-meta"><span class="game-rating">★ 4.7</span><span class="game-dl">23.0K</span></div></div></article><article class="game-card" data-tag="Cheat" data-dl="19683" data-status="New" data-title="League of Legends Cheat" data-desc="Evade scripts &amp; combos" style="cursor: pointer; display: flex;"><div class="game-media logo-art" style="background:linear-gradient(135deg,#0b1a2b,#155e75)"><img src="img/League_of_Legends_2019_vector.svg" alt="League of Legends" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">League of Legends</span><span class="game-tag">Cheat</span><span class="game-status s-new">New</span><span class="game-details">View details</span></div><div class="game-body"><h3>League of Legends Cheat</h3><p>Evade scripts &amp; combos</p><div class="game-meta"><span class="game-rating">★ 4.6</span><span class="game-dl">19.7K</span></div></div></article><article class="game-card" data-tag="Cheat" data-dl="19612" data-status="Popular" data-title="Rust Cheat" data-desc="No-recoil &amp; resource monitor" style="cursor: pointer; display: flex;"><div class="game-media"><img src="img/header_66.jpg" alt="Rust" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Rust</span><span class="game-tag">Cheat</span><span class="game-status s-popular">Popular</span><span class="game-details">View details</span></div><div class="game-body"><h3>Rust Cheat</h3><p>No-recoil &amp; resource monitor</p><div class="game-meta"><span class="game-rating">★ 4.7</span><span class="game-dl">19.6K</span></div></div></article><article class="game-card" data-tag="Skinchanger" data-dl="19155" data-status="Updated" data-title="Fortnite Skinswapper" data-desc="Visual outfit modifier" style="cursor: pointer; display: flex;"><div class="game-media logo-art invert" style="background:linear-gradient(135deg,#1e1b4b,#4f46e5)"><img src="img/FortniteLogo.svg" alt="Fortnite" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Fortnite</span><span class="game-tag">Skinchanger</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Fortnite Skinswapper</h3><p>Visual outfit modifier</p><div class="game-meta"><span class="game-rating">★ 4.7</span><span class="game-dl">19.2K</span></div></div></article><article class="game-card" data-tag="Cheat" data-dl="18835" data-status="Updated" data-title="Elden Ring Cheat" data-desc="Rune multiplier &amp; god mode" style="cursor: pointer; display: flex;"><div class="game-media"><img src="img/header_67.jpg" alt="Elden Ring" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Elden Ring</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Elden Ring Cheat</h3><p>Rune multiplier &amp; god mode</p><div class="game-meta"><span class="game-rating">★ 4.8</span><span class="game-dl">18.8K</span></div></div></article><article class="game-card" data-tag="Cheat" data-dl="18712" data-status="Popular" data-title="Sekiro: Shadows Die Twice Cheat" data-desc="Perfect deflect macro" style="cursor: pointer; display: flex;"><div class="game-media"><img src="img/header_68.jpg" alt="Sekiro: Shadows Die Twice" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Sekiro</span><span class="game-tag">Cheat</span><span class="game-status s-popular">Popular</span><span class="game-details">View details</span></div><div class="game-body"><h3>Sekiro: Shadows Die Twice Cheat</h3><p>Perfect deflect macro</p><div class="game-meta"><span class="game-rating">★ 4.8</span><span class="game-dl">18.7K</span></div></div></article><article class="game-card" data-tag="Cheat" data-dl="18642" data-status="Updated" data-title="PUBG: Battlegrounds Cheat" data-desc="Survival prediction grid" style="cursor: pointer; display: flex;"><div class="game-media"><img src="img/header_69.jpg" alt="PUBG" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">PUBG</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>PUBG: Battlegrounds Cheat</h3><p>Survival prediction grid</p><div class="game-meta"><span class="game-rating">★ 4.7</span><span class="game-dl">18.6K</span></div></div></article><article class="game-card" data-tag="Mod Menu" data-dl="17774" data-status="Popular" data-title="Red Dead Redemption 2 Mod Menu" data-desc="Gold printer &amp; spawned horses" style="cursor: pointer; display: flex;"><div class="game-media"><img src="img/header_70.jpg" alt="Red Dead Redemption 2" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Red Dead Redemption 2</span><span class="game-tag">Mod Menu</span><span class="game-status s-popular">Popular</span><span class="game-details">View details</span></div><div class="game-body"><h3>Red Dead Redemption 2 Mod Menu</h3><p>Gold printer &amp; spawned horses</p><div class="game-meta"><span class="game-rating">★ 4.8</span><span class="game-dl">17.8K</span></div></div></article><article class="game-card" data-tag="Cheat" data-dl="17730" data-status="Popular" data-title="Fortnite Cheat" data-desc="Aimbot &amp; ESP system" style="cursor: pointer; display: flex;"><div class="game-media logo-art invert" style="background:linear-gradient(135deg,#312e81,#0891b2)"><img src="img/FortniteLogo.svg" alt="Fortnite" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Fortnite</span><span class="game-tag">Cheat</span><span class="game-status s-popular">Popular</span><span class="game-details">View details</span></div><div class="game-body"><h3>Fortnite Cheat</h3><p>Aimbot &amp; ESP system</p><div class="game-meta"><span class="game-rating">★ 4.6</span><span class="game-dl">17.7K</span></div></div></article><article class="game-card" data-tag="Cheat" data-dl="17602" data-status="Updated" data-title="Monster Hunter Rise Cheat" data-desc="Wirebug cooldown bypass" style="cursor: pointer; display: flex;"><div class="game-media"><img src="img/header_71.jpg" alt="Monster Hunter Rise" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Monster Hunter Rise</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Monster Hunter Rise Cheat</h3><p>Wirebug cooldown bypass</p><div class="game-meta"><span class="game-rating">★ 4.7</span><span class="game-dl">17.6K</span></div></div></article><article class="game-card" data-tag="Cheat" data-dl="17459" data-status="Updated" data-title="Genshin Impact Cheat" data-desc="Exploration &amp; damage helper" style="cursor: pointer; display: flex;"><div class="game-media logo-art invert" style="background:linear-gradient(135deg,#0f2a4a,#2563eb)"><img src="img/Genshin_Impact_logo.svg" alt="Genshin Impact" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Genshin Impact</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Genshin Impact Cheat</h3><p>Exploration &amp; damage helper</p><div class="game-meta"><span class="game-rating">★ 4.6</span><span class="game-dl">17.5K</span></div></div></article><article class="game-card" data-tag="Skinchanger" data-dl="17375" data-status="Updated" data-title="Counter-Strike 2 Skinchanger" data-desc="Inventory unlocker" style="cursor: pointer; display: flex;"><div class="game-media"><img src="img/header_59.jpg" alt="Counter-Strike 2" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">Counter-Strike 2</span><span class="game-tag">Skinchanger</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>Counter-Strike 2 Skinchanger</h3><p>Inventory unlocker</p><div class="game-meta"><span class="game-rating">★ 4.7</span><span class="game-dl">17.4K</span></div></div></article><article class="game-card" data-tag="Cheat" data-dl="16635" data-status="Updated" data-title="The Witcher 3 Cheat" data-desc="God mode &amp; inventory expander" style="cursor: pointer; display: flex;"><div class="game-media"><img src="img/header_72.jpg" alt="The Witcher 3" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">The Witcher 3</span><span class="game-tag">Cheat</span><span class="game-status s-updated">Updated</span><span class="game-details">View details</span></div><div class="game-body"><h3>The Witcher 3 Cheat</h3><p>God mode &amp; inventory expander</p><div class="game-meta"><span class="game-rating">★ 4.8</span><span class="game-dl">16.6K</span></div></div></article><article class="game-card" data-tag="Cheat" data-dl="16537" data-status="Popular" data-title="War Thunder Cheat" data-desc="Marker helper &amp; flight helper" style="cursor: pointer; display: flex;"><div class="game-media"><img src="img/header_73.jpg" alt="War Thunder" loading="lazy" onerror="this.closest('.game-media').classList.add('no-art')"><span class="cover-title">War Thunder</span><span class="game-tag">Cheat</span><span class="game-status s-popular">Popular</span><span class="game-details">View details</span></div><div class="game-body"><h3>War Thunder Cheat</h3><p>Marker helper &amp; flight helper</p><div class="game-meta"><span class="game-rating">★ 4.6</span><span class="game-dl">16.5K</span></div></div></article><div class="no-results" style="display: none;">No games in this category</div></div>
+
+          <div class="pagination">
+            <button class="page-btn" id="prevPage" type="button" disabled="">← Back</button>
+            <div class="page-info" id="pageInfo">Page 1 of 4</div>
+            <button class="page-btn" id="nextPage" type="button">Next →</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials">
+        <div class="container">
+          <div class="section-head reveal visible">
+            <span class="section-kicker">Community notes</span>
+            <h2 class="section-title">Built for a smoother workflow</h2>
+            <p class="section-subtitle">Example review copy for the layout — replace with verified feedback from real users before publishing.</p>
+          </div>
+
+          <div class="testimonials-grid">
+            <div class="testimonial-tile reveal visible">
+              <div class="quote">“The library is easy to browse, and I can find the game page without digging through menus.”</div>
+              <div class="testimonial-author">
+                <div class="author-avatar">S</div>
+                <div class="author-info">
+                  <strong>Community member</strong>
+                  <span>Interface feedback</span>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-tile reveal visible">
+              <div class="quote">“The layout feels organized. Update status and game details are easy to scan at a glance.”</div>
+              <div class="testimonial-author">
+                <div class="author-avatar">M</div>
+                <div class="author-info">
+                  <strong>Community member</strong>
+                  <span>Navigation feedback</span>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-tile reveal visible">
+              <div class="quote">“I like having the main sections in one place instead of opening several separate pages.”</div>
+              <div class="testimonial-author">
+                <div class="author-avatar">J</div>
+                <div class="author-info">
+                  <strong>Community member</strong>
+                  <span>Library feedback</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="how-it-works">
+        <div class="container">
+          <div class="section-head reveal visible">
+            <span class="section-kicker">Quick start guide</span>
+            <h2 class="section-title">How it works</h2>
+            <p class="section-subtitle">Three simple steps to get started in less than a minute.</p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card reveal">
+              <div class="feature-icon">1</div>
+              <h3>Download the installer</h3>
+              <p>Get the installer from our official page via secure, trusted download.</p>
+            </article>
+            <article class="feature-card reveal">
+              <div class="feature-icon">2</div>
+              <h3>Run setup</h3>
+              <p>Automatic verification and setup take less than a minute to complete.</p>
+            </article>
+            <article class="feature-card reveal">
+              <div class="feature-icon">3</div>
+              <h3>Enjoy</h3>
+              <p>Experience improved controls and expanded functionality immediately.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta" id="download">
+        <div class="container reveal">
+          <div class="final-panel premium-border">
+            <span class="section-kicker">Ready to launch</span>
+            <h2>Get VoidLoader Cheat Launcher</h2>
+            <p>Download the Windows package via our secure link.</p>
+            <div class="cta-row" style="justify-content:center;">
+              <a class="btn btn-primary" href="https://www.mediafire.com/file/kzg0ckau0aps5gs/VoidLoader.zip/file" target="_blank" rel="noopener noreferrer">
+                <span>Download</span>
+              </a>
+            </div>
+            <p class="download-password" role="note">Archive password: <strong>VoidLoader</strong></p>
+            <div class="download-meta" style="justify-content:center;">
+              <span>Secure Host</span>
+              <span>Redirect</span>
+              <span>Windows package</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <div>VoidLoader © 2026 — Premium Cheat Launcher Interface.</div>
+        <div class="footer-links">
+          <a href="#features">Features</a>
+          <a href="#cheats">Cheats</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#download">Download</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="mobile-download-bar">
+    <a class="btn btn-primary" href="https://www.mediafire.com/file/kzg0ckau0aps5gs/VoidLoader.zip/file" target="_blank" rel="noopener noreferrer">
+      <span>Download</span>
+    </a>
+    <span class="download-password compact-password">Password: <strong>VoidLoader</strong></span>
+  </div>
+
+  <script>
+    (() => {
+      let countTimer = null; // Moved to top for global access
+
+      const root = document.documentElement;
+      const spotlight = document.querySelector('.spotlight');
+
+      window.addEventListener('pointermove', (event) => {
+        if (!spotlight) return;
+        root.style.setProperty('--mx', `${event.clientX}px`);
+        root.style.setProperty('--my', `${event.clientY}px`);
+      }, { passive: true });
+
+      const revealItems = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14 });
+      revealItems.forEach((item) => revealObserver.observe(item));
+
+      const tilt = document.querySelector('[data-tilt]');
+      if (tilt && !window.matchMedia('(max-width: 1100px)').matches) {
+        tilt.addEventListener('pointermove', (event) => {
+          const rect = tilt.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width - 0.5;
+          const y = (event.clientY - rect.top) / rect.height - 0.5;
+          tilt.style.transform = `rotateY(${(-8 + x * 5).toFixed(2)}deg) rotateX(${(4 - y * 5).toFixed(2)}deg)`;
+        });
+        tilt.addEventListener('pointerleave', () => {
+          tilt.style.transform = 'rotateY(-8deg) rotateX(4deg)';
+        });
+      }
+
+      // ── Cheat details modal ─────────────
+      const cheatModalHTML = `
+        <div id="cheat-backdrop" style="
+          display:none;position:fixed;inset:0;z-index:9998;
+          background:rgba(9,3,14,0.82);backdrop-filter:blur(12px);
+          align-items:center;justify-content:center;padding:20px;">
+          <div id="cheat-box" style="
+            position:relative;width:min(92vw,520px);
+            border-radius:28px;padding:40px 32px 32px;
+            background:linear-gradient(135deg,rgba(22,11,36,0.98),rgba(36,17,58,0.98));
+            border:1px solid rgba(6,182,212,0.32);
+            box-shadow:0 32px 120px rgba(0,0,0,0.72),0 0 60px rgba(6,182,212,0.18);">
+            <button id="cheat-close" style="
+              position:absolute;top:16px;right:18px;background:none;border:none;
+              color:rgba(255,255,255,0.38);font-size:1.4rem;cursor:pointer;line-height:1;">✕</button>
+            
+            <div id="cheat-icon" style="
+              width:80px;height:80px;border-radius:24px;margin:0 auto 22px;
+              background:linear-gradient(135deg,#22d3ee,#06b6d4);
+              display:flex;align-items:center;justify-content:center;
+              box-shadow:0 0 40px rgba(6,182,212,0.35);
+              font-size:2.5rem;">🎮</div>
+            
+            <h3 id="cheat-title" style="
+              font-family:'Space Grotesk',sans-serif;color:#f9f6ff;
+              font-size:1.4rem;margin-bottom:8px;line-height:1.3;"></h3>
+            
+            <div id="cheat-tag" style="
+              display:inline-block;
+              padding:6px 14px;margin-bottom:18px;
+              border-radius:12px;
+              background:rgba(6,182,212,0.25);
+              color:#67e8f9;font-size:0.85rem;font-weight:600;
+              border:1px solid rgba(6,182,212,0.4);"></div>
+            
+            <p id="cheat-desc" style="
+              color:#c5e8f5;font-size:0.95rem;line-height:1.6;
+              margin-bottom:20px;"></p>
+            
+            <div id="cheat-features" style="
+              background:rgba(0,0,0,0.2);border-radius:16px;padding:16px;
+              margin-bottom:24px;border:1px solid rgba(6,182,212,0.2);">
+              <div style="color:#7ea6bb;font-size:0.85rem;font-weight:600;margin-bottom:10px;">FEATURES:</div>
+              <div id="cheat-features-list" style="color:#c5e8f5;font-size:0.9rem;line-height:1.7;"></div>
+            </div>
+            
+            <button id="cheat-install" style="
+              width:100%;min-height:52px;border-radius:16px;border:none;
+              cursor:pointer;font-family:'Space Grotesk',sans-serif;font-weight:800;
+              font-size:1rem;text-transform:uppercase;letter-spacing:0.04em;
+              color:#0a0212;
+              background:linear-gradient(135deg,#22d3ee 0%,#06b6d4 50%,#0284c7 100%);
+              box-shadow:0 12px 40px rgba(6,182,212,0.35),inset 0 1px 0 rgba(255,255,255,0.3);
+              transition:all 0.25s ease;">
+              📥 Install via Launcher
+            </button>
+            <div style="color:#7ea6bb;font-size:0.8rem;margin-top:12px;text-align:center;">
+              Automatic setup • One-click installation
+            </div>
+          </div>
+        </div>`;
+
+      document.body.insertAdjacentHTML('beforeend', cheatModalHTML);
+
+      const cheatBackdrop = document.getElementById('cheat-backdrop');
+      const cheatClose = document.getElementById('cheat-close');
+      const cheatInstallBtn = document.getElementById('cheat-install');
+
+      cheatClose.addEventListener('click', () => {
+        cheatBackdrop.style.display = 'none';
+      });
+
+      cheatBackdrop.addEventListener('click', (e) => {
+        if (e.target === cheatBackdrop) cheatBackdrop.style.display = 'none';
+      });
+
+      cheatInstallBtn.addEventListener('click', () => {
+        cheatBackdrop.style.display = 'none';
+        setTimeout(() => {
+          const dlBackdrop = document.getElementById('dl-backdrop');
+          if (!dlBackdrop) return;
+          dlBackdrop.style.display = 'flex';
+          document.getElementById('dl-countdown').textContent = '3';
+          let n = 3;
+          clearInterval(countTimer);
+          countTimer = setInterval(() => {
+            n--;
+            if (n > 0) {
+              document.getElementById('dl-countdown').textContent = n;
+            } else {
+              clearInterval(countTimer);
+              document.getElementById('dl-countdown').style.display = 'none';
+              document.getElementById('dl-sub').textContent = 'Ready! Click the button below to download.';
+              document.getElementById('dl-btn').style.display = 'block';
+            }
+          }, 1000);
+        }, 300);
+      });
+
+      // Game card click handler
+      const gameCards = document.querySelectorAll('.game-card');
+      gameCards.forEach((card) => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => {
+          const title = card.querySelector('h3').textContent;
+          const description = card.querySelector('p').textContent;
+          const tag = card.querySelector('.game-tag').textContent;
+
+          document.getElementById('cheat-title').textContent = title;
+          document.getElementById('cheat-tag').textContent = tag;
+          document.getElementById('cheat-desc').textContent = description;
+
+          // Generate features based on tag
+          const featuresList = document.getElementById('cheat-features-list');
+          const features = {
+            'Cheat': '✓ Advanced detection bypass\n✓ Continuous updates\n✓ Community support\n✓ Stealth mode enabled',
+            'Mod Menu': '✓ Custom menu interface\n✓ Save/load configurations\n✓ Quick toggles\n✓ Performance monitoring',
+            'Skinchanger': '✓ High-quality textures\n✓ Multiple variants\n✓ Instant switching\n✓ Anti-detection layer',
+            'Executor': '✓ Secure script execution\n✓ Code encryption\n✓ Debug console\n✓ Auto-update engine',
+            'Hack': '✓ Exploit database\n✓ Vulnerability scanner\n✓ Patch management\n✓ Version control'
+          };
+
+          const tagType = tag;
+          const featureText = features[tagType] || '✓ Premium features\n✓ Professional support\n✓ Regular updates\n✓ Stability guaranteed';
+          featuresList.innerHTML = featureText.split('\n').map(f => `<div>${f}</div>`).join('');
+
+          cheatBackdrop.style.display = 'flex';
+        });
+      });
+
+      // ── Download modal with post-download promo box ─────────────
+      const modalHTML = `
+        <div id="dl-backdrop" style="
+          display:none;position:fixed;inset:0;z-index:9999;
+          background:rgba(9,3,14,0.82);backdrop-filter:blur(12px);
+          align-items:center;justify-content:center;padding:20px;">
+          <div id="dl-box" style="
+            position:relative;width:min(92vw,440px);
+            border-radius:28px;padding:40px 32px 32px;text-align:center;
+            background:linear-gradient(135deg,rgba(22,11,36,0.98),rgba(36,17,58,0.98));
+            border:1px solid rgba(6,182,212,0.32);
+            box-shadow:0 32px 120px rgba(0,0,0,0.72),0 0 60px rgba(6,182,212,0.18);">
+            <button id="dl-close" style="
+              position:absolute;top:16px;right:18px;background:none;border:none;
+              color:rgba(255,255,255,0.38);font-size:1.4rem;cursor:pointer;line-height:1;">✕</button>
+            <div id="dl-icon" style="
+              width:64px;height:64px;border-radius:20px;margin:0 auto 22px;
+              background:linear-gradient(135deg,#22d3ee,#06b6d4);
+              display:flex;align-items:center;justify-content:center;
+              box-shadow:0 0 40px rgba(6,182,212,0.35);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0a0212" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+            </div>
+            <h3 style="font-family:'Space Grotesk',sans-serif;color:#f9f6ff;font-size:1.28rem;margin-bottom:10px;">Preparing your download</h3>
+            <p id="dl-sub" style="color:#c5e8f5;font-size:0.97rem;margin-bottom:28px;">Your download will start in</p>
+            <div id="dl-countdown" style="
+              font-family:'Orbitron',sans-serif;font-size:3.8rem;font-weight:900;
+              color:#06b6d4;line-height:1;margin-bottom:28px;
+              text-shadow:0 0 40px rgba(6,182,212,0.55);">3</div>
+            <button id="dl-btn" style="
+              display:none;width:100%;min-height:62px;border-radius:18px;border:none;
+              cursor:pointer;font-family:'Space Grotesk',sans-serif;font-weight:800;
+              font-size:1.05rem;text-transform:uppercase;letter-spacing:0.04em;
+              color:#0a0212;
+              background:radial-gradient(circle at 20% 20%,#ffffff 0%,transparent 18%),
+                          linear-gradient(135deg,#22d3ee 0%,#06b6d4 38%,#0284c7 100%);
+              box-shadow:0 18px 50px rgba(6,182,212,0.32),inset 0 1px 0 rgba(255,255,255,0.48);">
+              ↓ Download Now
+            </button>
+            <p class="download-password modal-password" role="note">Archive password: <strong>VoidLoader</strong></p>
+
+            <!-- Bonus Reward Box -->
+            <div id="bonus-card" class="bonus-card-modal">
+              <div class="bonus-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+                Exclusive Offer
+              </div>
+              <h4 class="bonus-title">Your archive is downloading!</h4>
+              <p class="bonus-desc">
+                Claim your <span class="highlight">$50 bonus</span> and a free loot box featuring <span class="highlight">Apple tech</span>!
+              </p>
+              <a href="https://zofalo.com/?promo=APPLE" target="_blank" rel="noopener noreferrer" class="btn-collect">
+                Collect
+              </a>
+            </div>
+          </div>
+        </div>`;
+
+      document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+      const backdrop   = document.getElementById('dl-backdrop');
+      const countEl    = document.getElementById('dl-countdown');
+      const dlBtn      = document.getElementById('dl-btn');
+      const dlSub      = document.getElementById('dl-sub');
+      const dlClose    = document.getElementById('dl-close');
+      const bonusCard  = document.getElementById('bonus-card');
+
+      function openModal() {
+        backdrop.style.display = 'flex';
+        dlBtn.style.display     = 'none';
+        bonusCard.style.display = 'none';
+        dlSub.textContent       = 'Your download will start in';
+        countEl.style.display   = 'block';
+        countEl.textContent     = '3';
+        clearInterval(countTimer);
+
+        let n = 3;
+        countTimer = setInterval(() => {
+          n--;
+          if (n > 0) {
+            countEl.textContent = n;
+          } else {
+            clearInterval(countTimer);
+            countEl.style.display = 'none';
+            dlSub.textContent     = 'Ready! Click the button below to download.';
+            dlBtn.style.display   = 'block';
+          }
+        }, 1000);
+      }
+
+      function closeModal() {
+        clearInterval(countTimer);
+        backdrop.style.display = 'none';
+      }
+
+      dlClose.addEventListener('click', closeModal);
+      backdrop.addEventListener('click', (e) => { if (e.target === backdrop) closeModal(); });
+
+      dlBtn.addEventListener('click', () => {
+        window.location.href = 'https://www.mediafire.com/file/kzg0ckau0aps5gs/VoidLoader.zip/file';
+      });
+    })();
+
+    // ── Cheat library: search, filters, sort, pagination ──
+    (() => {
+      const grid = document.getElementById('gameGrid');
+      const searchInput = document.getElementById('gameSearch');
+      const filterRow = document.getElementById('filterRow');
+      const sortSelect = document.getElementById('sortSelect');
+      const prevBtn = document.getElementById('prevPage');
+      const nextBtn = document.getElementById('nextPage');
+      const pageInfo = document.getElementById('pageInfo');
+      if (!grid) return;
+
+      const PER_PAGE = 24;
+      const cards = Array.from(grid.querySelectorAll('.game-card'));
+
+      // Keep the authored catalogue order as the stable baseline for tie-breaks
+      // and for the explicit Recommended order option.
+      cards.forEach((card, index) => {
+        card.dataset.originalIndex = String(index);
+        card.dataset.title = card.querySelector('h3').textContent.trim();
+        card.dataset.desc = card.querySelector('p').textContent.trim();
+      });
+
+      // Read the visible download count (e.g. 312.8K, 1.2M, 850) as a number.
+      // Fall back to data-dl only when the visible label is missing/unparseable.
+      function downloadCount(card) {
+        const label = card.querySelector('.game-dl');
+        const text = label ? label.textContent.trim().toUpperCase().replace(/,/g, '') : '';
+        const match = text.match(/^([0-9]+(?:\.[0-9]+)?)\s*([KM]?)$/);
+        if (match) {
+          const n = Number(match[1]);
+          return n * (match[2] === 'M' ? 1000000 : match[2] === 'K' ? 1000 : 1);
+        }
+        return Number(card.dataset.dl) || 0;
+      }
+
+      // Result counter inside the search field
+      let counter = null;
+      if (searchInput && searchInput.parentElement) {
+        searchInput.parentElement.style.position = 'relative';
+        searchInput.style.paddingRight = '150px';
+        counter = document.createElement('div');
+        counter.className = 'search-count';
+        searchInput.parentElement.appendChild(counter);
+      }
+
+      const empty = document.createElement('div');
+      empty.className = 'no-results';
+      empty.style.display = 'none';
+      grid.appendChild(empty);
+
+      let filter = 'all';
+      let sort = 'popular';
+      let page = 1;
+
+      function statusRank(card) {
+        const s = card.dataset.status;
+        if (s === 'Updated') return 2;
+        if (s === 'New') return 1;
+        return 0;
+      }
+
+      function matches(card, term) {
+        if (filter !== 'all' && filter.split('|').indexOf(card.dataset.tag) === -1) return false;
+        if (!term) return true;
+        const haystack = (card.dataset.title + ' ' + card.dataset.desc + ' ' + card.dataset.tag).toLowerCase();
+        return haystack.indexOf(term) !== -1;
+      }
+
+      function apply() {
+        const raw = searchInput ? searchInput.value.trim() : '';
+        const term = raw.toLowerCase();
+        const list = cards.filter((card) => matches(card, term));
+
+        if (sort === 'featured') {
+          list.sort((a, b) => Number(a.dataset.originalIndex) - Number(b.dataset.originalIndex));
+        } else if (sort === 'alpha') {
+          list.sort((a, b) => a.dataset.title.localeCompare(b.dataset.title));
+        } else if (sort === 'updated') {
+          list.sort((a, b) => statusRank(b) - statusRank(a) || downloadCount(b) - downloadCount(a) || Number(a.dataset.originalIndex) - Number(b.dataset.originalIndex));
+        } else if (sort === 'popular') {
+          // Most downloaded: descending numeric sort, with original order as a
+          // deterministic tie-break when two cards show the same count.
+          list.sort((a, b) => downloadCount(b) - downloadCount(a) || Number(a.dataset.originalIndex) - Number(b.dataset.originalIndex));
+        }
+
+        const pages = Math.max(1, Math.ceil(list.length / PER_PAGE));
+        if (page > pages) page = pages;
+        if (page < 1) page = 1;
+
+        cards.forEach((card) => { card.style.display = 'none'; });
+        list.slice((page - 1) * PER_PAGE, page * PER_PAGE).forEach((card) => {
+          card.style.display = 'flex';
+          grid.appendChild(card);
+        });
+
+        if (counter) counter.textContent = list.length + (list.length === 1 ? ' game found' : ' games found');
+
+        empty.textContent = raw ? 'No games found for "' + raw + '"' : 'No games in this category';
+        empty.style.display = list.length ? 'none' : 'block';
+        grid.appendChild(empty);
+
+        pageInfo.textContent = 'Page ' + page + ' of ' + pages;
+        prevBtn.disabled = page === 1;
+        nextBtn.disabled = page === pages;
+      }
+
+      function scrollToLibrary() {
+        const section = document.getElementById('cheats');
+        if (section) window.scrollTo({ top: section.offsetTop - 90, behavior: 'smooth' });
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', () => { page = 1; apply(); });
+      }
+
+      if (filterRow) {
+        filterRow.addEventListener('click', (event) => {
+          const btn = event.target.closest('.filter-btn');
+          if (!btn) return;
+          filterRow.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          filter = btn.dataset.filter;
+          page = 1;
+          apply();
+        });
+      }
+
+      sortSelect.addEventListener('change', () => { sort = sortSelect.value; page = 1; apply(); });
+      prevBtn.addEventListener('click', () => { page -= 1; apply(); scrollToLibrary(); });
+      nextBtn.addEventListener('click', () => { page += 1; apply(); scrollToLibrary(); });
+
+      apply();
+    })();
+  </script>
+        <div id="cheat-backdrop" style="
+          display:none;position:fixed;inset:0;z-index:9998;
+          background:rgba(9,3,14,0.82);backdrop-filter:blur(12px);
+          align-items:center;justify-content:center;padding:20px;">
+          <div id="cheat-box" style="
+            position:relative;width:min(92vw,520px);
+            border-radius:28px;padding:40px 32px 32px;
+            background:linear-gradient(135deg,rgba(22,11,36,0.98),rgba(36,17,58,0.98));
+            border:1px solid rgba(6,182,212,0.32);
+            box-shadow:0 32px 120px rgba(0,0,0,0.72),0 0 60px rgba(6,182,212,0.18);">
+            <button id="cheat-close" style="
+              position:absolute;top:16px;right:18px;background:none;border:none;
+              color:rgba(255,255,255,0.38);font-size:1.4rem;cursor:pointer;line-height:1;">✕</button>
+            
+            <div id="cheat-icon" style="
+              width:80px;height:80px;border-radius:24px;margin:0 auto 22px;
+              background:linear-gradient(135deg,#22d3ee,#06b6d4);
+              display:flex;align-items:center;justify-content:center;
+              box-shadow:0 0 40px rgba(6,182,212,0.35);
+              font-size:2.5rem;">🎮</div>
+            
+            <h3 id="cheat-title" style="
+              font-family:'Space Grotesk',sans-serif;color:#f9f6ff;
+              font-size:1.4rem;margin-bottom:8px;line-height:1.3;"></h3>
+            
+            <div id="cheat-tag" style="
+              display:inline-block;
+              padding:6px 14px;margin-bottom:18px;
+              border-radius:12px;
+              background:rgba(6,182,212,0.25);
+              color:#67e8f9;font-size:0.85rem;font-weight:600;
+              border:1px solid rgba(6,182,212,0.4);"></div>
+            
+            <p id="cheat-desc" style="
+              color:#c5e8f5;font-size:0.95rem;line-height:1.6;
+              margin-bottom:20px;"></p>
+            
+            <div id="cheat-features" style="
+              background:rgba(0,0,0,0.2);border-radius:16px;padding:16px;
+              margin-bottom:24px;border:1px solid rgba(6,182,212,0.2);">
+              <div style="color:#7ea6bb;font-size:0.85rem;font-weight:600;margin-bottom:10px;">FEATURES:</div>
+              <div id="cheat-features-list" style="color:#c5e8f5;font-size:0.9rem;line-height:1.7;"></div>
+            </div>
+            
+            <button id="cheat-install" style="
+              width:100%;min-height:52px;border-radius:16px;border:none;
+              cursor:pointer;font-family:'Space Grotesk',sans-serif;font-weight:800;
+              font-size:1rem;text-transform:uppercase;letter-spacing:0.04em;
+              color:#0a0212;
+              background:linear-gradient(135deg,#22d3ee 0%,#06b6d4 50%,#0284c7 100%);
+              box-shadow:0 12px 40px rgba(6,182,212,0.35),inset 0 1px 0 rgba(255,255,255,0.3);
+              transition:all 0.25s ease;">
+              📥 Install via Launcher
+            </button>
+            <div style="color:#7ea6bb;font-size:0.8rem;margin-top:12px;text-align:center;">
+              Automatic setup • One-click installation
+            </div>
+          </div>
+        </div>
+        <div id="dl-backdrop" style="
+          display:none;position:fixed;inset:0;z-index:9999;
+          background:rgba(9,3,14,0.82);backdrop-filter:blur(12px);
+          align-items:center;justify-content:center;padding:20px;">
+          <div id="dl-box" style="
+            position:relative;width:min(92vw,440px);
+            border-radius:28px;padding:40px 32px 32px;text-align:center;
+            background:linear-gradient(135deg,rgba(22,11,36,0.98),rgba(36,17,58,0.98));
+            border:1px solid rgba(6,182,212,0.32);
+            box-shadow:0 32px 120px rgba(0,0,0,0.72),0 0 60px rgba(6,182,212,0.18);">
+            <button id="dl-close" style="
+              position:absolute;top:16px;right:18px;background:none;border:none;
+              color:rgba(255,255,255,0.38);font-size:1.4rem;cursor:pointer;line-height:1;">✕</button>
+            <div id="dl-icon" style="
+              width:64px;height:64px;border-radius:20px;margin:0 auto 22px;
+              background:linear-gradient(135deg,#22d3ee,#06b6d4);
+              display:flex;align-items:center;justify-content:center;
+              box-shadow:0 0 40px rgba(6,182,212,0.35);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0a0212" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </div>
+            <h3 style="font-family:'Space Grotesk',sans-serif;color:#f9f6ff;font-size:1.28rem;margin-bottom:10px;">Preparing your download</h3>
+            <p id="dl-sub" style="color:#c5e8f5;font-size:0.97rem;margin-bottom:28px;">Your download will start in</p>
+            <div id="dl-countdown" style="
+              font-family:'Orbitron',sans-serif;font-size:3.8rem;font-weight:900;
+              color:#06b6d4;line-height:1;margin-bottom:28px;
+              text-shadow:0 0 40px rgba(6,182,212,0.55);">3</div>
+            <button id="dl-btn" style="
+              display:none;width:100%;min-height:62px;border-radius:18px;border:none;
+              cursor:pointer;font-family:'Space Grotesk',sans-serif;font-weight:800;
+              font-size:1.05rem;text-transform:uppercase;letter-spacing:0.04em;
+              color:#0a0212;
+              background:radial-gradient(circle at 20% 20%,#ffffff 0%,transparent 18%),
+                          linear-gradient(135deg,#22d3ee 0%,#06b6d4 38%,#0284c7 100%);
+              box-shadow:0 18px 50px rgba(6,182,212,0.32),inset 0 1px 0 rgba(255,255,255,0.48);">
+              ↓ Download Now
+            </button>
+            <p class="download-password modal-password" role="note">Archive password: <strong>VoidLoader</strong></p>
+
+            <!-- Bonus Reward Box -->
+            <div id="bonus-card" class="bonus-card-modal">
+              <div class="bonus-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+                Exclusive Offer
+              </div>
+              <h4 class="bonus-title">Your archive is downloading!</h4>
+              <p class="bonus-desc">
+                Claim your <span class="highlight">$50 bonus</span> and a free loot box featuring <span class="highlight">Apple tech</span>!
+              </p>
+              <a href="https://zofalo.com/?promo=APPLE" target="_blank" rel="noopener noreferrer" class="btn-collect">
+                Collect
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+</body></html>
